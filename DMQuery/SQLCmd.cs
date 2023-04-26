@@ -13,6 +13,7 @@ namespace DMQuery
         public static DataTable Selecionar(string query)
         {
             SqlCommand cmd = new SqlCommand(query, Conexao.conn);
+            cmd.CommandTimeout=0;
             DataTable dt = new DataTable();
             dt.Load(cmd.ExecuteReader());
             return dt;

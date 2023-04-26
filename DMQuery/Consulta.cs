@@ -233,5 +233,10 @@ namespace DMQuery
         {
             backgroundWorker1.CancelAsync();
         }
+
+        private void novaRotinaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -19,6 +19,14 @@ namespace DMQuery
         public string dataCriacao { get; set; }
         public string ultimaVez { get; set; }
 
+        public static Rotina lerRotina(string arquivoRotina)
+        {
+            StreamReader rotina = new StreamReader(arquivoRotina);
+            string rot = rotina.ReadToEnd().ToString();
+            Rotina rotinajson = JsonConvert.DeserializeObject<Rotina>(rot);
+            rotina.Close();
+            return rotinajson;
+        }
         public static void criarRotina(string nomeR, string chamadoB, string queryB, string nomeReq, string observacoesR, string pastaReq)
         {
             var rotina = new

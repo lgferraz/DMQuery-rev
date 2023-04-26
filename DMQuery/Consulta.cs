@@ -224,7 +224,14 @@ namespace DMQuery
             else
             {
                 XLWorkbook relat = (XLWorkbook)e.Result;
-                salvarRelatorio(relat);
+                try
+                {
+                    salvarRelatorio(relat);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
                 btnExecutar.Enabled = true;
             }
         }

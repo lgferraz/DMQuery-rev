@@ -80,6 +80,7 @@
             this.txtQuery.Font = new System.Drawing.Font("Cascadia Mono Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtQuery.Location = new System.Drawing.Point(15, 57);
             this.txtQuery.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtQuery.MaxLength = 0;
             this.txtQuery.Multiline = true;
             this.txtQuery.Name = "txtQuery";
             this.txtQuery.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;

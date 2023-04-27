@@ -86,6 +86,7 @@
             this.txtQuery.Font = new System.Drawing.Font("Cascadia Mono Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtQuery.Location = new System.Drawing.Point(14, 86);
             this.txtQuery.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtQuery.MaxLength = 0;
             this.txtQuery.Multiline = true;
             this.txtQuery.Name = "txtQuery";
             this.txtQuery.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -213,13 +214,13 @@
             // novaConsultaToolStripMenuItem
             // 
             this.novaConsultaToolStripMenuItem.Name = "novaConsultaToolStripMenuItem";
-            this.novaConsultaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.novaConsultaToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.novaConsultaToolStripMenuItem.Text = "Nova consulta";
             // 
             // novaRotinaToolStripMenuItem
             // 
             this.novaRotinaToolStripMenuItem.Name = "novaRotinaToolStripMenuItem";
-            this.novaRotinaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.novaRotinaToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.novaRotinaToolStripMenuItem.Text = "Adicionar rotina";
             this.novaRotinaToolStripMenuItem.Click += new System.EventHandler(this.novaRotinaToolStripMenuItem_Click);
             // 

@@ -47,7 +47,7 @@ namespace DMQuery
                 return "";
             }
             return relatFile.FileName.ToString();
-            
+
         }
         public XLWorkbook gerarRelatorio(string query)
         {
@@ -107,7 +107,7 @@ namespace DMQuery
                 nomeRelatorio = DateTime.Now.ToString("ddMMyyyy") + "-" + nomeRelatorio + ".xlsx";
                 txtQuery.Text = querytxt.ReadToEnd();
             }
-            catch 
+            catch
             {
                 //MessageBox.Show("Arquivo não especificado");
             }
@@ -131,9 +131,9 @@ namespace DMQuery
 
         private void txtCaminhoQuery_DragDrop(object sender, DragEventArgs e)
         {
-            string[] files = e.Data.GetData(DataFormats.FileDrop) as string[];  
+            string[] files = e.Data.GetData(DataFormats.FileDrop) as string[];
             if (files != null && files.Any())
-            txtArquivoQuery.Text = files.First(); 
+                txtArquivoQuery.Text = files.First();
         }
 
         private void txtCaminhoQuery_DragOver(object sender, DragEventArgs e)
@@ -148,7 +148,7 @@ namespace DMQuery
         {
             string[] files = e.Data.GetData(DataFormats.FileDrop) as string[];
             if (files != null && files.Any())
-            txtArquivoQuery.Text = files.First();
+                txtArquivoQuery.Text = files.First();
             lerQuery(files.First());
 
 
@@ -192,7 +192,7 @@ namespace DMQuery
         {
             string relatArquivo = salvarDialogo();
             txtArquivoRequerente.Text = relatArquivo;
-            
+
         }
 
         private void Consulta_Load(object sender, EventArgs e)
@@ -224,7 +224,14 @@ namespace DMQuery
             else
             {
                 XLWorkbook relat = (XLWorkbook)e.Result;
-                salvarRelatorio(relat);
+                try
+                {
+                    salvarRelatorio(relat);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
                 btnExecutar.Enabled = true;
             }
         }
@@ -233,7 +240,6 @@ namespace DMQuery
         {
             backgroundWorker1.CancelAsync();
         }
-
         private void novaRotinaToolStripMenuItem_Click(object sender, EventArgs e)
         {
 

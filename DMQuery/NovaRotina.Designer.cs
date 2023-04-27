@@ -40,6 +40,9 @@
             this.txtPastaRequerente = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnSalvar = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.txtArquivoQueryBase = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -111,7 +114,7 @@
             // 
             this.btnAbrirPasta.AllowDrop = true;
             this.btnAbrirPasta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAbrirPasta.Location = new System.Drawing.Point(218, 326);
+            this.btnAbrirPasta.Location = new System.Drawing.Point(218, 328);
             this.btnAbrirPasta.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnAbrirPasta.Name = "btnAbrirPasta";
             this.btnAbrirPasta.Size = new System.Drawing.Size(34, 27);
@@ -123,7 +126,7 @@
             // 
             this.txtPastaRequerente.AllowDrop = true;
             this.txtPastaRequerente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtPastaRequerente.Location = new System.Drawing.Point(16, 327);
+            this.txtPastaRequerente.Location = new System.Drawing.Point(16, 329);
             this.txtPastaRequerente.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtPastaRequerente.Name = "txtPastaRequerente";
             this.txtPastaRequerente.Size = new System.Drawing.Size(198, 26);
@@ -132,7 +135,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 304);
+            this.label5.Location = new System.Drawing.Point(12, 306);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(115, 20);
             this.label5.TabIndex = 10;
@@ -140,18 +143,52 @@
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(96, 372);
+            this.btnSalvar.Location = new System.Drawing.Point(87, 427);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 31);
             this.btnSalvar.TabIndex = 11;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 361);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(83, 20);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Query base:";
+            // 
+            // button1
+            // 
+            this.button1.AllowDrop = true;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(218, 383);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(34, 27);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "...";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // txtArquivoQueryBase
+            // 
+            this.txtArquivoQueryBase.AllowDrop = true;
+            this.txtArquivoQueryBase.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtArquivoQueryBase.Location = new System.Drawing.Point(16, 384);
+            this.txtArquivoQueryBase.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtArquivoQueryBase.Name = "txtArquivoQueryBase";
+            this.txtArquivoQueryBase.Size = new System.Drawing.Size(198, 26);
+            this.txtArquivoQueryBase.TabIndex = 12;
+            // 
             // Preview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(269, 415);
+            this.ClientSize = new System.Drawing.Size(270, 470);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.txtArquivoQueryBase);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnAbrirPasta);
@@ -165,7 +202,7 @@
             this.Controls.Add(this.txtNomeRotina);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "Preview";
             this.Text = "Nova Rotina";
             this.ResumeLayout(false);
@@ -187,5 +224,8 @@
         private System.Windows.Forms.TextBox txtPastaRequerente;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtArquivoQueryBase;
     }
 }

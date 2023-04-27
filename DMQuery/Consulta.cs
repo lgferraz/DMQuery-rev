@@ -88,7 +88,7 @@ namespace DMQuery
             {
                 if (txtArquivoQuery.Text != "")
                 {
-                    relatorio.SaveAs("RelatoriosGerados/"+nomeRelatorio);
+                    relatorio.SaveAs("RelatoriosGerados/" + nomeRelatorio);
                 }
                 else
                 {

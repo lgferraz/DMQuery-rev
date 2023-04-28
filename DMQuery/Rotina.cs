@@ -54,7 +54,6 @@ namespace DMQuery
         public static string[] lerRotinas()
         {   
             List<string> rotinasN = new List<string>();
-            //rotinasN.Add(string.Empty);
             string[] rotinas = Directory.GetFiles(Directory.GetCurrentDirectory()+"/Rotinas");
             foreach (string rotina in rotinas)
             {

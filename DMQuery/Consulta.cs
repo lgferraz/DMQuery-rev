@@ -222,7 +222,7 @@ namespace DMQuery
             {
                 string query = txtQuery.Text;
                 XLWorkbook relat = gerarRelatorio(query);
-                e.Result = relat;
+                salvarRelatorio(relat);
             }
             catch
             {
@@ -239,16 +239,16 @@ namespace DMQuery
             }
             else
             {
-                XLWorkbook relat = (XLWorkbook)e.Result;
                 try
                 {
-                    salvarRelatorio(relat);
+                    MessageBox.Show("Query executada com sucesso!");
+                    btnExecutar.Enabled = true;
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
-                btnExecutar.Enabled = true;
+                
             }
         }
 

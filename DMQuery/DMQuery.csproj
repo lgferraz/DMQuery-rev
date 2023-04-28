@@ -120,6 +120,12 @@
     <Compile Include="Conectar.Designer.cs">
       <DependentUpon>Conectar.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConsultRotina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultRotina.Designer.cs">
+      <DependentUpon>ConsultRotina.cs</DependentUpon>
+    </Compile>
     <Compile Include="Corefunc.cs" />
     <Compile Include="NovaRotina.cs">
       <SubType>Form</SubType>
@@ -136,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Conectar.resx">
       <DependentUpon>Conectar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultRotina.resx">
+      <DependentUpon>ConsultRotina.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NovaRotina.resx">
       <DependentUpon>NovaRotina.cs</DependentUpon>

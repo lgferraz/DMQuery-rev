@@ -5,19 +5,20 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DMQuery
 {
     internal class Rotina
     {
-        public string nomeRotina { get; set; }
-        public string chamadoBase { get; set; }
-        public string queryBase { get; set; }
-        public string nomeRequerente { get; set; }
+        public string nome_rotina { get; set; }
+        public string chamado_base { get; set; }
+        public string query_base { get; set; }
+        public string nome_requerente { get; set; }
         public string observacoes { get; set; }
-        public string pastaRequerente { get; set; }
-        public string dataCriacao { get; set; }
-        public string ultimaVez { get; set; }
+        public string pasta_requerente { get; set; }
+        public string data_criacao { get; set; }
+        public string ultima_vez { get; set; }
 
         public static Rotina lerRotina(string arquivoRotina)
         {
@@ -45,6 +46,19 @@ namespace DMQuery
             StreamWriter rot = new StreamWriter("Rotinas/"+nomeR+".rot");
             rot.Write(json);
             rot.Close();
+        }
+        public static string[] lerRotinas()
+        {   
+            List<string> rotinasN = new List<string>();
+            string[] rotinas = Directory.GetFiles(Directory.GetCurrentDirectory()+"/Rotinas");
+            foreach (string rotina in rotinas)
+            {
+                string rotinaN = Path.GetFileName(rotina);
+                rotinasN.Add(rotinaN);
+
+            }
+            string[] result = rotinasN.ToArray();
+            return result;
         }
     }
 }

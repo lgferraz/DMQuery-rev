@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -21,6 +22,36 @@ namespace DMQuery
             InitializeComponent();
         }
         public string nomeRelatorio = "*";
+        public void limparRot()
+        {
+            txtArquivoQuery.Text = "";
+            txtArquivoRequerente.Text = "";
+            txtQuery.Text = "";
+            nomeRelatorio = "*";
+        }
+        public void limpar()
+        {
+            txtArquivoQuery.Text = "";
+            txtArquivoRequerente.Text = "";
+            txtQuery.Text = "";
+            cmbRotinas.Text = "";
+            nomeRelatorio = "*";
+        }
+        public void carregarRotinas()
+        {
+            try
+            {
+                string[] rotinas = Rotina.lerRotinas();
+                if (rotinas.Length > 0)
+                {
+                    cmbRotinas.Items.AddRange(rotinas);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         public string abrirDialogo()
         {
             OpenFileDialog queryFile = new OpenFileDialog();
@@ -54,45 +85,29 @@ namespace DMQuery
         }
         public void salvarRelatorio(XLWorkbook relatorio)
         {
-            if (chkSomenteParaMim.Checked == false)
-            {
-                if (txtArquivoQuery.Text != "")
-                {
-                    if (txtArquivoRequerente.Text != "")
-                    {
-                        relatorio.SaveAs(txtArquivoRequerente.Text);
-                        relatorio.SaveAs("RelatoriosGerados/" + nomeRelatorio);
-                    }
-                    else
-                    {
-                        relatorio.SaveAs(salvarDialogo());
-                        relatorio.SaveAs("RelatoriosGerados/" + nomeRelatorio);
-                    }
-                }
-                else
-                {
-                    string caminho = salvarDialogo();
-                    relatorio.SaveAs(caminho);
-                    Regex regex = new Regex(@"[^\\]*$");
-                    Match match = regex.Match(caminho);
-                    if (match.Success)
-                    {
-                        string nomeDoArquivo = match.Value;
-                        relatorio.SaveAs("RelatoriosGerados/" + DateTime.Now.ToString("ddMMyyyy") + "-" + nomeDoArquivo + ".xlsx");
-                    }
 
-                }
+            if (chkSomenteParaMim.Checked && nomeRelatorio == "*")
+            {
+                relatorio.SaveAs(salvarDialogo());
+                relatorio.SaveAs("RelatoriosGerados/" + nomeRelatorio);
+            }
+            else if (chkSomenteParaMim.Checked)
+            {
+                relatorio.SaveAs("RelatoriosGerados/" + nomeRelatorio);
             }
             else
             {
-                if (txtArquivoQuery.Text != "")
+                if (txtArquivoRequerente.Text != "")
                 {
+                    relatorio.SaveAs(txtArquivoRequerente.Text);
                     relatorio.SaveAs("RelatoriosGerados/" + nomeRelatorio);
                 }
                 else
                 {
                     relatorio.SaveAs(salvarDialogo());
+                    relatorio.SaveAs("RelatoriosGerados/" + nomeRelatorio);
                 }
+
             }
         }
         public void lerQuery(string queryArquivo)
@@ -104,6 +119,9 @@ namespace DMQuery
             string queryFile = abrirDialogo();
             txtArquivoQuery.Text = queryFile;
             lerQuery(txtArquivoQuery.Text);
+            nomeRelatorio = queryFile;
+            nomeRelatorio = Path.GetFileNameWithoutExtension(queryFile);
+            nomeRelatorio = DateTime.Now.ToString("ddMMyyyy") + "-" + nomeRelatorio + ".xlsx";
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -136,7 +154,12 @@ namespace DMQuery
             string[] files = e.Data.GetData(DataFormats.FileDrop) as string[];
             if (files != null && files.Any())
                 txtArquivoQuery.Text = files.First();
-            lerQuery(files.First());
+                string queryFile = files.First();
+                txtArquivoQuery.Text = queryFile;
+                lerQuery(txtArquivoQuery.Text);
+                nomeRelatorio = queryFile;
+                nomeRelatorio = Path.GetFileNameWithoutExtension(queryFile);
+                nomeRelatorio = DateTime.Now.ToString("ddMMyyyy") + "-" + nomeRelatorio + ".xlsx";
 
 
         }
@@ -184,7 +207,7 @@ namespace DMQuery
 
         private void Consulta_Load(object sender, EventArgs e)
         {
-
+            carregarRotinas();
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
@@ -227,10 +250,26 @@ namespace DMQuery
         {
             backgroundWorker1.CancelAsync();
         }
-        private void novaRotinaToolStripMenuItem_Click(object sender, EventArgs e)
+
+        private void cmbRotinas_SelectedIndexChanged(object sender, EventArgs e)
         {
-            NovaRotina novaRot = new NovaRotina();
-            novaRot.Show();
+            try
+            {
+                limparRot();
+                Rotina rotina = Rotina.lerRotina(Directory.GetCurrentDirectory() + "\\Rotinas\\" + cmbRotinas.SelectedItem.ToString());
+                txtQuery.Text = rotina.query_base;
+                nomeRelatorio = DateTime.Now.ToString("ddMMyyyy") + "-" + rotina.nome_rotina + ".xlsx";
+                txtArquivoRequerente.Text = rotina.pasta_requerente.Replace("\\", "/") + "/" + DateTime.Now.ToString("ddMMyyyy") + "-" + rotina.nome_rotina + ".xlsx";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            limpar();
         }
     }
 }

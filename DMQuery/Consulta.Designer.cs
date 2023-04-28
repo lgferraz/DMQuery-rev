@@ -43,9 +43,12 @@
             this.bntCancelar = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.novaConsultaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rotinasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultarRotinaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.novaRotinaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmbRotinas = new System.Windows.Forms.ComboBox();
+            this.btnLimpar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -84,13 +87,13 @@
             // 
             this.txtQuery.AllowDrop = true;
             this.txtQuery.Font = new System.Drawing.Font("Cascadia Mono Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuery.Location = new System.Drawing.Point(14, 86);
+            this.txtQuery.Location = new System.Drawing.Point(14, 118);
             this.txtQuery.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtQuery.MaxLength = 0;
             this.txtQuery.Multiline = true;
             this.txtQuery.Name = "txtQuery";
             this.txtQuery.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtQuery.Size = new System.Drawing.Size(601, 414);
+            this.txtQuery.Size = new System.Drawing.Size(601, 380);
             this.txtQuery.TabIndex = 2;
             this.txtQuery.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             this.txtQuery.DragDrop += new System.Windows.Forms.DragEventHandler(this.txtQuery_DragDrop);
@@ -99,7 +102,7 @@
             // btnExecutar
             // 
             this.btnExecutar.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExecutar.Location = new System.Drawing.Point(529, 523);
+            this.btnExecutar.Location = new System.Drawing.Point(529, 521);
             this.btnExecutar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnExecutar.Name = "btnExecutar";
             this.btnExecutar.Size = new System.Drawing.Size(87, 41);
@@ -114,7 +117,7 @@
             this.panel1.Controls.Add(this.chkSomenteParaMim);
             this.panel1.Controls.Add(this.btnPastaRequerente);
             this.panel1.Controls.Add(this.txtArquivoRequerente);
-            this.panel1.Location = new System.Drawing.Point(15, 523);
+            this.panel1.Location = new System.Drawing.Point(15, 521);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(508, 79);
             this.panel1.TabIndex = 6;
@@ -157,7 +160,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Narrow", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(19, 509);
+            this.label1.Location = new System.Drawing.Point(19, 507);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 17);
             this.label1.TabIndex = 0;
@@ -182,7 +185,7 @@
             // bntCancelar
             // 
             this.bntCancelar.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bntCancelar.Location = new System.Drawing.Point(529, 570);
+            this.bntCancelar.Location = new System.Drawing.Point(529, 568);
             this.bntCancelar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.bntCancelar.Name = "bntCancelar";
             this.bntCancelar.Size = new System.Drawing.Size(87, 32);
@@ -205,24 +208,31 @@
             // menuToolStripMenuItem
             // 
             this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.novaConsultaToolStripMenuItem,
-            this.novaRotinaToolStripMenuItem});
+            this.rotinasToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.menuToolStripMenuItem.Text = "Menu";
             // 
-            // novaConsultaToolStripMenuItem
+            // rotinasToolStripMenuItem
             // 
-            this.novaConsultaToolStripMenuItem.Name = "novaConsultaToolStripMenuItem";
-            this.novaConsultaToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.novaConsultaToolStripMenuItem.Text = "Nova consulta";
+            this.rotinasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.consultarRotinaToolStripMenuItem,
+            this.novaRotinaToolStripMenuItem});
+            this.rotinasToolStripMenuItem.Name = "rotinasToolStripMenuItem";
+            this.rotinasToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
+            this.rotinasToolStripMenuItem.Text = "Rotinas";
+            // 
+            // consultarRotinaToolStripMenuItem
+            // 
+            this.consultarRotinaToolStripMenuItem.Name = "consultarRotinaToolStripMenuItem";
+            this.consultarRotinaToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.consultarRotinaToolStripMenuItem.Text = "Consultar Rotina";
             // 
             // novaRotinaToolStripMenuItem
             // 
             this.novaRotinaToolStripMenuItem.Name = "novaRotinaToolStripMenuItem";
-            this.novaRotinaToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.novaRotinaToolStripMenuItem.Text = "Adicionar rotina";
-            this.novaRotinaToolStripMenuItem.Click += new System.EventHandler(this.novaRotinaToolStripMenuItem_Click);
+            this.novaRotinaToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.novaRotinaToolStripMenuItem.Text = "Nova Rotina";
             // 
             // sobreToolStripMenuItem
             // 
@@ -230,11 +240,35 @@
             this.sobreToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
             this.sobreToolStripMenuItem.Text = "Sobre";
             // 
+            // cmbRotinas
+            // 
+            this.cmbRotinas.FormattingEnabled = true;
+            this.cmbRotinas.Location = new System.Drawing.Point(15, 84);
+            this.cmbRotinas.Name = "cmbRotinas";
+            this.cmbRotinas.Size = new System.Drawing.Size(562, 28);
+            this.cmbRotinas.TabIndex = 12;
+            this.cmbRotinas.SelectedIndexChanged += new System.EventHandler(this.cmbRotinas_SelectedIndexChanged);
+            // 
+            // btnLimpar
+            // 
+            this.btnLimpar.AllowDrop = true;
+            this.btnLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpar.Location = new System.Drawing.Point(581, 84);
+            this.btnLimpar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(34, 27);
+            this.btnLimpar.TabIndex = 13;
+            this.btnLimpar.Text = "🧹";
+            this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
+            // 
             // Consulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(637, 637);
+            this.Controls.Add(this.btnLimpar);
+            this.Controls.Add(this.cmbRotinas);
             this.Controls.Add(this.bntCancelar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtQuery);
@@ -276,9 +310,12 @@
         private System.Windows.Forms.Button bntCancelar;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem novaConsultaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem novaRotinaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rotinasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultarRotinaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem novaRotinaToolStripMenuItem;
+        private System.Windows.Forms.ComboBox cmbRotinas;
+        private System.Windows.Forms.Button btnLimpar;
     }
 }
 

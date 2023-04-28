@@ -43,12 +43,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtNomeRotina = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.cmbQuandoRodar = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(8, 356);
+            this.label6.Location = new System.Drawing.Point(8, 413);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(83, 20);
             this.label6.TabIndex = 29;
@@ -58,7 +60,7 @@
             // 
             this.button1.AllowDrop = true;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(214, 378);
+            this.button1.Location = new System.Drawing.Point(214, 435);
             this.button1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(34, 27);
@@ -71,7 +73,7 @@
             // 
             this.txtArquivoQueryBase.AllowDrop = true;
             this.txtArquivoQueryBase.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtArquivoQueryBase.Location = new System.Drawing.Point(12, 379);
+            this.txtArquivoQueryBase.Location = new System.Drawing.Point(12, 436);
             this.txtArquivoQueryBase.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtArquivoQueryBase.Name = "txtArquivoQueryBase";
             this.txtArquivoQueryBase.Size = new System.Drawing.Size(198, 26);
@@ -81,7 +83,7 @@
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(93, 420);
+            this.btnSalvar.Location = new System.Drawing.Point(93, 477);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 31);
             this.btnSalvar.TabIndex = 26;
@@ -92,7 +94,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(8, 301);
+            this.label5.Location = new System.Drawing.Point(8, 358);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(115, 20);
             this.label5.TabIndex = 25;
@@ -102,7 +104,7 @@
             // 
             this.btnAbrirPasta.AllowDrop = true;
             this.btnAbrirPasta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAbrirPasta.Location = new System.Drawing.Point(214, 323);
+            this.btnAbrirPasta.Location = new System.Drawing.Point(214, 380);
             this.btnAbrirPasta.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnAbrirPasta.Name = "btnAbrirPasta";
             this.btnAbrirPasta.Size = new System.Drawing.Size(34, 27);
@@ -115,7 +117,7 @@
             // 
             this.txtPastaRequerente.AllowDrop = true;
             this.txtPastaRequerente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtPastaRequerente.Location = new System.Drawing.Point(12, 324);
+            this.txtPastaRequerente.Location = new System.Drawing.Point(12, 381);
             this.txtPastaRequerente.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtPastaRequerente.Name = "txtPastaRequerente";
             this.txtPastaRequerente.Size = new System.Drawing.Size(198, 26);
@@ -123,7 +125,7 @@
             // 
             // txtObservacoes
             // 
-            this.txtObservacoes.Location = new System.Drawing.Point(12, 190);
+            this.txtObservacoes.Location = new System.Drawing.Point(12, 247);
             this.txtObservacoes.Multiline = true;
             this.txtObservacoes.Name = "txtObservacoes";
             this.txtObservacoes.Size = new System.Drawing.Size(236, 105);
@@ -132,7 +134,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 167);
+            this.label4.Location = new System.Drawing.Point(8, 224);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(94, 20);
             this.label4.TabIndex = 21;
@@ -186,11 +188,38 @@
             this.label1.TabIndex = 15;
             this.label1.Text = "Nome rotina:";
             // 
+            // cmbQuandoRodar
+            // 
+            this.cmbQuandoRodar.FormattingEnabled = true;
+            this.cmbQuandoRodar.Items.AddRange(new object[] {
+            "Diario",
+            "Semanal",
+            "Mensal",
+            "Chamado GLPI",
+            "Email",
+            "Outro"});
+            this.cmbQuandoRodar.Location = new System.Drawing.Point(12, 193);
+            this.cmbQuandoRodar.Name = "cmbQuandoRodar";
+            this.cmbQuandoRodar.Size = new System.Drawing.Size(100, 28);
+            this.cmbQuandoRodar.TabIndex = 30;
+            this.cmbQuandoRodar.SelectedValueChanged += new System.EventHandler(this.cmbQuandoRodar_SelectedValueChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(8, 170);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(95, 20);
+            this.label7.TabIndex = 31;
+            this.label7.Text = "Quando rodar:";
+            // 
             // NovaRotina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(260, 459);
+            this.ClientSize = new System.Drawing.Size(260, 517);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.cmbQuandoRodar);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtArquivoQueryBase);
@@ -232,5 +261,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtNomeRotina;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cmbQuandoRodar;
+        private System.Windows.Forms.Label label7;
     }
 }

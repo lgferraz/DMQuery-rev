@@ -16,7 +16,7 @@ namespace DMQuery
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new NovaRotina());
+            Application.Run(new Conectar());
         }
     }
 }

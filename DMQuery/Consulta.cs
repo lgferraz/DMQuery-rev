@@ -22,6 +22,8 @@ namespace DMQuery
         public Consulta()
         {
             InitializeComponent();
+            cmbRotinas.Items.Add("");
+            cmbRotinas.SelectedIndex= 0;
         }
         public string nomeRelatorio = "*";
         public void limparRot()
@@ -36,7 +38,7 @@ namespace DMQuery
             txtArquivoQuery.Text = "";
             txtArquivoRequerente.Text = "";
             txtQuery.Text = "";
-            cmbRotinas.Text = "";
+            cmbRotinas.SelectedItem = "";
             nomeRelatorio = "*";
         }
         public void carregarRotinas()
@@ -124,6 +126,7 @@ namespace DMQuery
         private void button1_Click(object sender, EventArgs e)
         {
             string queryFile = abrirDialogo();
+            limpar();
             txtArquivoQuery.Text = queryFile;
             lerQuery(txtArquivoQuery.Text);
             nomeRelatorio = queryFile;
@@ -133,7 +136,7 @@ namespace DMQuery
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            lerQuery(txtArquivoQuery.Text);
+            // lerQuery(txtArquivoQuery.Text);
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -145,6 +148,7 @@ namespace DMQuery
         {
             string[] files = e.Data.GetData(DataFormats.FileDrop) as string[];
             if (files != null && files.Any())
+                limpar();
                 txtArquivoQuery.Text = files.First();
         }
 
@@ -160,6 +164,7 @@ namespace DMQuery
         {
             string[] files = e.Data.GetData(DataFormats.FileDrop) as string[];
             if (files != null && files.Any())
+                limpar();
                 txtArquivoQuery.Text = files.First();
                 string queryFile = files.First();
                 txtArquivoQuery.Text = queryFile;
@@ -263,11 +268,18 @@ namespace DMQuery
         {
             try
             {
-                limparRot();
-                Rotina rotina = Rotina.lerRotina(Directory.GetCurrentDirectory() + "\\Rotinas\\" + cmbRotinas.SelectedItem.ToString());
-                txtQuery.Text = rotina.query_base;
-                nomeRelatorio = DateTime.Now.ToString("ddMMyyyy") + "-" + rotina.nome_rotina + ".xlsx";
-                txtArquivoRequerente.Text = rotina.pasta_requerente.Replace("\\", "/") + "/" + DateTime.Now.ToString("ddMMyyyy") + "-" + rotina.nome_rotina + ".xlsx";
+                if (cmbRotinas.SelectedItem.ToString() != "")
+                {
+                    limparRot();
+                    Rotina rotina = Rotina.lerRotina(Directory.GetCurrentDirectory() + "\\Rotinas\\" + cmbRotinas.SelectedItem.ToString());
+                    txtQuery.Text = rotina.query_base;
+                    nomeRelatorio = DateTime.Now.ToString("ddMMyyyy") + "-" + rotina.nome_rotina + ".xlsx";
+                    txtArquivoRequerente.Text = rotina.pasta_requerente.Replace("\\", "/") + "/" + DateTime.Now.ToString("ddMMyyyy") + "-" + rotina.nome_rotina + ".xlsx";
+                }
+                else
+                {
+                    limparRot();
+                }
             }
             catch (Exception ex)
             {

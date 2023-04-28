@@ -245,13 +245,12 @@ namespace DMQuery
                     XLWorkbook relat = (XLWorkbook)e.Result;
                     salvarRelatorio(relat);
                     MessageBox.Show("Query executada com sucesso!");
-                    btnExecutar.Enabled = true;
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
-                
+                btnExecutar.Enabled = true;
             }
         }
 

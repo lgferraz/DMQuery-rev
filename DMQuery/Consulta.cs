@@ -1,4 +1,5 @@
 ﻿using ClosedXML.Excel;
+using DocumentFormat.OpenXml.Office.CustomUI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -42,9 +43,12 @@ namespace DMQuery
             try
             {
                 string[] rotinas = Rotina.lerRotinas();
-                if (rotinas.Length > 0)
+                foreach (string rotina in rotinas)
                 {
-                    cmbRotinas.Items.AddRange(rotinas);
+                    if (!cmbRotinas.Items.Contains(rotina))
+                    {
+                        cmbRotinas.Items.Add(rotina);
+                    }
                 }
             }
             catch (Exception ex)
@@ -270,6 +274,17 @@ namespace DMQuery
         private void btnLimpar_Click(object sender, EventArgs e)
         {
             limpar();
+        }
+
+        private void novaRotinaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NovaRotina novaR = new NovaRotina();
+            novaR.Show();
+        }
+
+        private void atualizarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            carregarRotinas();
         }
     }
 }

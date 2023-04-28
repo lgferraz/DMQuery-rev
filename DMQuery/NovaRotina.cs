@@ -62,6 +62,7 @@ namespace DMQuery
                 string queryB = Corefunc.lerQuery(arquivoQueryB, nomeR);
                 Rotina.criarRotina(nomeR, chamadoB, queryB, nomeReq, observacoes, pastaReq);
                 MessageBox.Show("Rotina criada com sucesso");
+                this.Close();
             }
             catch (Exception ex)
             {

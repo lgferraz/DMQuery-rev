@@ -44,11 +44,14 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rotinasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultarRotinaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.novaRotinaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmbRotinas = new System.Windows.Forms.ComboBox();
             this.btnLimpar = new System.Windows.Forms.Button();
+            this.importarRotinaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.novaConsultaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.desconectarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.atualizarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -208,7 +211,9 @@
             // menuToolStripMenuItem
             // 
             this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.rotinasToolStripMenuItem});
+            this.rotinasToolStripMenuItem,
+            this.novaConsultaToolStripMenuItem,
+            this.desconectarToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.menuToolStripMenuItem.Text = "Menu";
@@ -216,23 +221,19 @@
             // rotinasToolStripMenuItem
             // 
             this.rotinasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.consultarRotinaToolStripMenuItem,
-            this.novaRotinaToolStripMenuItem});
+            this.novaRotinaToolStripMenuItem,
+            this.importarRotinaToolStripMenuItem,
+            this.atualizarToolStripMenuItem});
             this.rotinasToolStripMenuItem.Name = "rotinasToolStripMenuItem";
-            this.rotinasToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
+            this.rotinasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.rotinasToolStripMenuItem.Text = "Rotinas";
-            // 
-            // consultarRotinaToolStripMenuItem
-            // 
-            this.consultarRotinaToolStripMenuItem.Name = "consultarRotinaToolStripMenuItem";
-            this.consultarRotinaToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
-            this.consultarRotinaToolStripMenuItem.Text = "Consultar Rotina";
             // 
             // novaRotinaToolStripMenuItem
             // 
             this.novaRotinaToolStripMenuItem.Name = "novaRotinaToolStripMenuItem";
-            this.novaRotinaToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.novaRotinaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.novaRotinaToolStripMenuItem.Text = "Nova Rotina";
+            this.novaRotinaToolStripMenuItem.Click += new System.EventHandler(this.novaRotinaToolStripMenuItem_Click);
             // 
             // sobreToolStripMenuItem
             // 
@@ -261,6 +262,31 @@
             this.btnLimpar.Text = "🧹";
             this.btnLimpar.UseVisualStyleBackColor = true;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
+            // 
+            // importarRotinaToolStripMenuItem
+            // 
+            this.importarRotinaToolStripMenuItem.Name = "importarRotinaToolStripMenuItem";
+            this.importarRotinaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.importarRotinaToolStripMenuItem.Text = "Importar Rotina";
+            // 
+            // novaConsultaToolStripMenuItem
+            // 
+            this.novaConsultaToolStripMenuItem.Name = "novaConsultaToolStripMenuItem";
+            this.novaConsultaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.novaConsultaToolStripMenuItem.Text = "Nova Consulta";
+            // 
+            // desconectarToolStripMenuItem
+            // 
+            this.desconectarToolStripMenuItem.Name = "desconectarToolStripMenuItem";
+            this.desconectarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.desconectarToolStripMenuItem.Text = "Desconectar";
+            // 
+            // atualizarToolStripMenuItem
+            // 
+            this.atualizarToolStripMenuItem.Name = "atualizarToolStripMenuItem";
+            this.atualizarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.atualizarToolStripMenuItem.Text = "Atualizar";
+            this.atualizarToolStripMenuItem.Click += new System.EventHandler(this.atualizarToolStripMenuItem_Click);
             // 
             // Consulta
             // 
@@ -312,10 +338,13 @@
         private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rotinasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem consultarRotinaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem novaRotinaToolStripMenuItem;
         private System.Windows.Forms.ComboBox cmbRotinas;
         private System.Windows.Forms.Button btnLimpar;
+        private System.Windows.Forms.ToolStripMenuItem importarRotinaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem novaConsultaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem desconectarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem atualizarToolStripMenuItem;
     }
 }
 

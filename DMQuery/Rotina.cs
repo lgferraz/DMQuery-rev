@@ -42,7 +42,7 @@ namespace DMQuery
                 ultima_vez = "null"
             };
             string json = JsonConvert.SerializeObject(rotina, Formatting.Indented);
-            StreamWriter rot = new StreamWriter("Rotinas/"+nomeR+".json");
+            StreamWriter rot = new StreamWriter("Rotinas/"+nomeR+".rot");
             rot.Write(json);
             rot.Close();
         }

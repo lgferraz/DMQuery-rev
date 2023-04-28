@@ -120,6 +120,7 @@
     <Compile Include="Conectar.Designer.cs">
       <DependentUpon>Conectar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Corefunc.cs" />
     <Compile Include="NovaRotina.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -47,7 +47,6 @@ namespace DMQuery
                 return "";
             }
             return relatFile.FileName.ToString();
-
         }
         public XLWorkbook gerarRelatorio(string query)
         {
@@ -98,19 +97,7 @@ namespace DMQuery
         }
         public void lerQuery(string queryArquivo)
         {
-            try
-            {
-                StreamReader querytxt = new StreamReader(queryArquivo);
-                FileInfo arquivo = new FileInfo(queryArquivo);
-                nomeRelatorio = arquivo.Name.ToString();
-                nomeRelatorio = nomeRelatorio.Substring(0, nomeRelatorio.IndexOf(".")).Replace(" ", "-");
-                nomeRelatorio = DateTime.Now.ToString("ddMMyyyy") + "-" + nomeRelatorio + ".xlsx";
-                txtQuery.Text = querytxt.ReadToEnd();
-            }
-            catch
-            {
-                //MessageBox.Show("Arquivo não especificado");
-            }
+            txtQuery.Text = Corefunc.lerQuery(queryArquivo, nomeRelatorio);
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -242,7 +229,8 @@ namespace DMQuery
         }
         private void novaRotinaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            NovaRotina novaRot = new NovaRotina();
+            novaRot.Show();
         }
     }
 }

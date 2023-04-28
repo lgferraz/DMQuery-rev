@@ -48,7 +48,6 @@
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmbRotinas = new System.Windows.Forms.ComboBox();
             this.btnLimpar = new System.Windows.Forms.Button();
-            this.importarRotinaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.novaConsultaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.desconectarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.atualizarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -204,7 +203,7 @@
             this.sobreToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(637, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(629, 24);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -222,7 +221,6 @@
             // 
             this.rotinasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.novaRotinaToolStripMenuItem,
-            this.importarRotinaToolStripMenuItem,
             this.atualizarToolStripMenuItem});
             this.rotinasToolStripMenuItem.Name = "rotinasToolStripMenuItem";
             this.rotinasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
@@ -263,23 +261,19 @@
             this.btnLimpar.UseVisualStyleBackColor = true;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
-            // importarRotinaToolStripMenuItem
-            // 
-            this.importarRotinaToolStripMenuItem.Name = "importarRotinaToolStripMenuItem";
-            this.importarRotinaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.importarRotinaToolStripMenuItem.Text = "Importar Rotina";
-            // 
             // novaConsultaToolStripMenuItem
             // 
             this.novaConsultaToolStripMenuItem.Name = "novaConsultaToolStripMenuItem";
             this.novaConsultaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.novaConsultaToolStripMenuItem.Text = "Nova Consulta";
+            this.novaConsultaToolStripMenuItem.Click += new System.EventHandler(this.novaConsultaToolStripMenuItem_Click);
             // 
             // desconectarToolStripMenuItem
             // 
             this.desconectarToolStripMenuItem.Name = "desconectarToolStripMenuItem";
             this.desconectarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.desconectarToolStripMenuItem.Text = "Desconectar";
+            this.desconectarToolStripMenuItem.Click += new System.EventHandler(this.desconectarToolStripMenuItem_Click);
             // 
             // atualizarToolStripMenuItem
             // 
@@ -292,7 +286,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(637, 637);
+            this.ClientSize = new System.Drawing.Size(629, 637);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.cmbRotinas);
             this.Controls.Add(this.bntCancelar);
@@ -341,7 +335,6 @@
         private System.Windows.Forms.ToolStripMenuItem novaRotinaToolStripMenuItem;
         private System.Windows.Forms.ComboBox cmbRotinas;
         private System.Windows.Forms.Button btnLimpar;
-        private System.Windows.Forms.ToolStripMenuItem importarRotinaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem novaConsultaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem desconectarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem atualizarToolStripMenuItem;

@@ -286,5 +286,16 @@ namespace DMQuery
         {
             carregarRotinas();
         }
+
+        private void desconectarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void novaConsultaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Consulta consultaN = new Consulta();
+            consultaN.Show();
+        }
     }
 }

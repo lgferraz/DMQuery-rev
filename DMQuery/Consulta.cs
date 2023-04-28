@@ -11,6 +11,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -222,11 +223,11 @@ namespace DMQuery
             {
                 string query = txtQuery.Text;
                 XLWorkbook relat = gerarRelatorio(query);
-                salvarRelatorio(relat);
+                e.Result = relat;
             }
-            catch
+            catch (Exception ex)
             {
-                //
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -241,6 +242,8 @@ namespace DMQuery
             {
                 try
                 {
+                    XLWorkbook relat = (XLWorkbook)e.Result;
+                    salvarRelatorio(relat);
                     MessageBox.Show("Query executada com sucesso!");
                     btnExecutar.Enabled = true;
                 }

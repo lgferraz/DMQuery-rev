@@ -16,6 +16,7 @@ namespace DMQuery
         public NovaRotina()
         {
             InitializeComponent();
+            cmbQuandoRodar.SelectedIndex = 0;
         }
 
         public bool periodoSelec = false;
@@ -23,6 +24,7 @@ namespace DMQuery
         private Control periodoDesc(string opcao)
         {
             Point posicaoCmb = cmbQuandoRodar.Location;
+            periodoSelec = true;
             switch (opcao)
             {
                 case "Semanal":
@@ -61,7 +63,7 @@ namespace DMQuery
                     TextBox descOutro = new TextBox();
                     descOutro.Text = "Detalhes...";
                     descOutro.Height = cmbQuandoRodar.Height;
-                    descOutro.Width = cmbQuandoRodar.Width;
+                    descOutro.Width = cmbQuandoRodar.Width + 10;
                     descOutro.Location = new Point(posicaoCmb.X * 10, posicaoCmb.Y);
                     return descOutro;
 
@@ -107,13 +109,23 @@ namespace DMQuery
             string nomeR = txtNomeRotina.Text.Replace(" ", "_");
             string chamadoB = txtChamadoBase.Text;
             string nomeReq = txtNomeRequerente.Text;
+            string periodoR = cmbQuandoRodar.Text;
             string observacoes = txtObservacoes.Text;
             string pastaReq = txtPastaRequerente.Text;
             string arquivoQueryB = txtArquivoQueryBase.Text;
             try
             {
                 string queryB = Corefunc.lerQuery(arquivoQueryB, nomeR);
-                Rotina.criarRotina(nomeR, chamadoB, queryB, nomeReq, observacoes, pastaReq);
+                if (periodoSelec)
+                {
+                    string quandoR = controleSelec.Text;
+                    Rotina.criarRotina(nomeR, chamadoB, queryB, nomeReq, periodoR, observacoes, pastaReq, quandoR);
+                }
+                else
+                {
+                    MessageBox.Show("aqui");
+                    Rotina.criarRotina(nomeR, chamadoB, queryB, nomeReq, periodoR, observacoes, pastaReq);
+                }
                 MessageBox.Show("Rotina criada com sucesso");
                 this.Close();
             }
@@ -126,11 +138,16 @@ namespace DMQuery
         private void cmbQuandoRodar_SelectedValueChanged(object sender, EventArgs e)
         {
             string opcao = cmbQuandoRodar.SelectedItem.ToString();
-            if (periodoSelec)
+            if (periodoSelec && opcao != "Diario")
             {
                 this.Controls.Remove(controleSelec);
                 controleSelec = periodoDesc(opcao);
                 this.Controls.Add(controleSelec);
+            }
+            else if (periodoSelec && opcao == "Diario")
+            {
+                this.Controls.Remove(controleSelec);
+                periodoSelec = false;
             }
             else
             {

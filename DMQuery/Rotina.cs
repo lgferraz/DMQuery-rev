@@ -15,6 +15,8 @@ namespace DMQuery
         public string chamado_base { get; set; }
         public string query_base { get; set; }
         public string nome_requerente { get; set; }
+        public string periodo { get; set; }
+        public string quando_rodar { get; set; }
         public string observacoes { get; set; }
         public string pasta_requerente { get; set; }
         public string data_criacao { get; set; }
@@ -29,7 +31,7 @@ namespace DMQuery
             return rotinajson;
         }
 
-        public static void criarRotina(string nomeR, string chamadoB, string queryB, string nomeReq, string observacoesR, string pastaReq)
+        public static void criarRotina(string nomeR, string chamadoB, string queryB, string nomeReq, string periodoR, string observacoesR, string pastaReq, string quandoR = "")
         {
             var rotina = new
             {
@@ -37,6 +39,8 @@ namespace DMQuery
                 chamado_base = chamadoB,
                 query_base = queryB,
                 nome_requerente = nomeReq,
+                periodo = periodoR,
+                quando_rodar = quandoR,
                 observacoes = observacoesR,
                 pasta_requerente = pastaReq,
                 data_criacao = DateTime.Now.ToString("yyyy-MM-dd"),

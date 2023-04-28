@@ -81,6 +81,8 @@ namespace DMQuery
                 MessageBox.Show("Caminho não especificado");
                 return "";
             }
+            nomeRelatorio = Path.GetFileNameWithoutExtension(relatFile.FileName.ToString());
+            nomeRelatorio = DateTime.Now.ToString("ddMMyyyy") + "-" + nomeRelatorio + ".xlsx";
             return relatFile.FileName.ToString();
         }
         public XLWorkbook gerarRelatorio(string query)

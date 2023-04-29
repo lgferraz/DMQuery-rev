@@ -72,7 +72,7 @@ namespace DMQuery
         {
             //foi rodado hoje / deve ser rodado hoje
             string diaDaSemana = DateTime.Now.DayOfWeek.ToString();
-            string[] r = new string[] { "N", "" };
+            string[] r = new string[] { "Nao", "" };
             string[] externo = new string[] {"Chamado GLPI", "Email", "Outro" };
             StreamReader rotina = new StreamReader("Rotinas/" + nomeR);
             string rot = rotina.ReadToEnd().ToString();
@@ -80,7 +80,7 @@ namespace DMQuery
             Rotina rotinajson = JsonConvert.DeserializeObject<Rotina>(rot);
             if (rotinajson.ultima_vez == DateTime.Now.ToString("yyyy-MM-dd"))
             {
-                r[0] = "S";
+                r[0] = "Sim";
             }
             if (externo.Contains(rotinajson.periodo))
             {
@@ -90,49 +90,49 @@ namespace DMQuery
             {
                 if (rotinajson.quando_rodar == "Domingo" && diaDaSemana == "Sunday")
                 {
-                    r[1] = "S";
+                    r[1] = "Sim";
                 }
                 else if (rotinajson.quando_rodar == "Segunda-Feira" && diaDaSemana == "Moonday")
                 {
-                    r[1] = "S";
+                    r[1] = "Sim";
                 }
                 else if (rotinajson.quando_rodar == "Terca-Feira" && diaDaSemana == "Tuesday")
                 {
-                    r[1] = "S";
+                    r[1] = "Sim";
                 }
                 else if (rotinajson.quando_rodar == "Quarta-Feira" && diaDaSemana == "Wednesday")
                 {
-                    r[1] = "S";
+                    r[1] = "Sim";
                 }
                 else if (rotinajson.quando_rodar == "Quinta-Feira" && diaDaSemana == "Thursday")
                 {
-                    r[1] = "S";
+                    r[1] = "Sim";
                 }
                 else if (rotinajson.quando_rodar == "Sexta-Feira" && diaDaSemana == "Friday")
                 {
-                    r[1] = "S";
+                    r[1] = "Sim";
                 }
                 else if (rotinajson.quando_rodar == "Sabado" && diaDaSemana == "Saturday")
                 {
-                    r[1] = "S";
+                    r[1] = "Sim";
                 }
-                else { r[1] = "N"; }
+                else { r[1] = "Nao"; }
             }
             else if (rotinajson.periodo == "Mensal")
             {
                 if (rotinajson.quando_rodar == "Primeiro dia" && primeiroDia())
                 {
-                    r[1] = "S";
+                    r[1] = "Sim";
                 }
                 else if(rotinajson.quando_rodar == "Ultimo dia" && ultimoDia())
                 {
-                    r[1] = "S";
+                    r[1] = "Sim";
                 }
                 else if (rotinajson.quando_rodar == DateTime.Now.ToString("dd"))
                 {
-                    r[1] = "S";
+                    r[1] = "Sim";
                 }
-                else { r[1] = "N"; }
+                else { r[1] = "Nao"; }
             }
 
             return r;

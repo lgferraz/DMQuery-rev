@@ -30,6 +30,8 @@ namespace DMQuery
         {
             txtArquivoQuery.Text = "";
             txtArquivoRequerente.Text = "";
+            lbRodouHoje.Text = "Rodou hoje: ";
+            lbDeveRodar.Text = "Deve rodar: ";
             txtQuery.Text = "";
             nomeRelatorio = "*";
         }
@@ -37,6 +39,8 @@ namespace DMQuery
         {
             txtArquivoQuery.Text = "";
             txtArquivoRequerente.Text = "";
+            lbRodouHoje.Text = "Rodou hoje: ";
+            lbDeveRodar.Text = "Deve rodar: ";
             txtQuery.Text = "";
             cmbRotinas.SelectedItem = "";
             nomeRelatorio = "*";
@@ -285,6 +289,8 @@ namespace DMQuery
                     limparRot();
                     Rotina rotina = Rotina.lerRotina(Directory.GetCurrentDirectory() + "\\Rotinas\\" + cmbRotinas.SelectedItem.ToString());
                     txtQuery.Text = rotina.query_base;
+                    lbRodouHoje.Text = "Rodou hoje: " + Rotina.rodarHoje(cmbRotinas.SelectedItem.ToString())[0];
+                    lbDeveRodar.Text = "Deve rodar: " + Rotina.rodarHoje(cmbRotinas.SelectedItem.ToString())[1];
                     nomeRelatorio = DateTime.Now.ToString("ddMMyyyy") + "-" + rotina.nome_rotina + ".xlsx";
                     txtArquivoRequerente.Text = rotina.pasta_requerente.Replace("\\", "/") + "/" + DateTime.Now.ToString("ddMMyyyy") + "-" + rotina.nome_rotina + ".xlsx";
                 }

@@ -52,6 +52,8 @@
             this.cmbRotinas = new System.Windows.Forms.ComboBox();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.bntEditar = new System.Windows.Forms.Button();
+            this.lbDeveRodar = new System.Windows.Forms.Label();
+            this.lbRodouHoje = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -90,13 +92,13 @@
             // 
             this.txtQuery.AllowDrop = true;
             this.txtQuery.Font = new System.Drawing.Font("Cascadia Mono Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuery.Location = new System.Drawing.Point(14, 118);
+            this.txtQuery.Location = new System.Drawing.Point(14, 136);
             this.txtQuery.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtQuery.MaxLength = 0;
             this.txtQuery.Multiline = true;
             this.txtQuery.Name = "txtQuery";
             this.txtQuery.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtQuery.Size = new System.Drawing.Size(601, 380);
+            this.txtQuery.Size = new System.Drawing.Size(601, 362);
             this.txtQuery.TabIndex = 2;
             this.txtQuery.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             this.txtQuery.DragDrop += new System.Windows.Forms.DragEventHandler(this.txtQuery_DragDrop);
@@ -296,11 +298,33 @@
             this.bntEditar.UseVisualStyleBackColor = true;
             this.bntEditar.Click += new System.EventHandler(this.bntEditar_Click);
             // 
+            // lbDeveRodar
+            // 
+            this.lbDeveRodar.AutoSize = true;
+            this.lbDeveRodar.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDeveRodar.Location = new System.Drawing.Point(26, 115);
+            this.lbDeveRodar.Name = "lbDeveRodar";
+            this.lbDeveRodar.Size = new System.Drawing.Size(57, 16);
+            this.lbDeveRodar.TabIndex = 15;
+            this.lbDeveRodar.Text = "Deve rodar:";
+            // 
+            // lbRodouHoje
+            // 
+            this.lbRodouHoje.AutoSize = true;
+            this.lbRodouHoje.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbRodouHoje.Location = new System.Drawing.Point(107, 115);
+            this.lbRodouHoje.Name = "lbRodouHoje";
+            this.lbRodouHoje.Size = new System.Drawing.Size(57, 16);
+            this.lbRodouHoje.TabIndex = 16;
+            this.lbRodouHoje.Text = "Rodou hoje:";
+            // 
             // Consulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(629, 637);
+            this.Controls.Add(this.lbRodouHoje);
+            this.Controls.Add(this.lbDeveRodar);
             this.Controls.Add(this.bntEditar);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.cmbRotinas);
@@ -354,6 +378,8 @@
         private System.Windows.Forms.ToolStripMenuItem desconectarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem atualizarToolStripMenuItem;
         private System.Windows.Forms.Button bntEditar;
+        private System.Windows.Forms.Label lbDeveRodar;
+        private System.Windows.Forms.Label lbRodouHoje;
     }
 }
 

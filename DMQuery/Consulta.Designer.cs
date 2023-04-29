@@ -63,6 +63,7 @@
             this.lbChamadoBase = new System.Windows.Forms.Label();
             this.lbNomeRotina = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.lbDataCriacao = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -354,6 +355,7 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.lbDataCriacao);
             this.panel2.Controls.Add(this.lbObservacoes);
             this.panel2.Controls.Add(this.lbUltimaVez);
             this.panel2.Controls.Add(this.lbQuandoRodar);
@@ -371,9 +373,9 @@
             this.lbObservacoes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbObservacoes.Location = new System.Drawing.Point(8, 142);
+            this.lbObservacoes.Location = new System.Drawing.Point(9, 162);
             this.lbObservacoes.Name = "lbObservacoes";
-            this.lbObservacoes.Size = new System.Drawing.Size(219, 208);
+            this.lbObservacoes.Size = new System.Drawing.Size(231, 187);
             this.lbObservacoes.TabIndex = 6;
             this.lbObservacoes.Text = "Observacoes:   ";
             // 
@@ -454,6 +456,17 @@
             this.label3.TabIndex = 18;
             this.label3.Text = "Rotina";
             // 
+            // lbDataCriacao
+            // 
+            this.lbDataCriacao.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbDataCriacao.Location = new System.Drawing.Point(9, 142);
+            this.lbDataCriacao.Name = "lbDataCriacao";
+            this.lbDataCriacao.Size = new System.Drawing.Size(218, 20);
+            this.lbDataCriacao.TabIndex = 7;
+            this.lbDataCriacao.Text = "Data criacao:   ";
+            // 
             // Consulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -528,6 +541,7 @@
         private System.Windows.Forms.Label lbQuandoRodar;
         private System.Windows.Forms.Label lbPeriodo;
         private System.Windows.Forms.Label lbRequerente;
+        private System.Windows.Forms.Label lbDataCriacao;
     }
 }
 

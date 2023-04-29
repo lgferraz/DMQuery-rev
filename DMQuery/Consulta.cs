@@ -34,6 +34,7 @@ namespace DMQuery
             lbPeriodo.Text = "Periodo: ";
             lbQuandoRodar.Text = "Quando rodar: ";
             lbUltimaVez.Text = "Ultima vez: ";
+            lbDataCriacao.Text = "Data criacao: ";
             lbObservacoes.Text = "Observacoes: ";
             txtArquivoQuery.Text = "";
             txtArquivoRequerente.Text = "";
@@ -50,6 +51,7 @@ namespace DMQuery
             lbPeriodo.Text = "Periodo: ";
             lbQuandoRodar.Text = "Quando rodar: ";
             lbUltimaVez.Text = "Ultima vez: ";
+            lbDataCriacao.Text = "Data criacao: ";
             lbObservacoes.Text = "Observacoes: ";
             txtArquivoQuery.Text = "";
             txtArquivoRequerente.Text = "";
@@ -151,13 +153,16 @@ namespace DMQuery
         public void preencherRotina(string nomeR)
         {
             Rotina rotina = Rotina.lerRotina(nomeR);
-            lbNomeRotina.Text += rotina.nome_rotina;
-            lbChamadoBase.Text += rotina.chamado_base;
-            lbRequerente.Text += rotina.nome_requerente;
-            lbPeriodo.Text += rotina.periodo;
-            lbQuandoRodar.Text += rotina.quando_rodar;
-            lbUltimaVez.Text += rotina.ultima_vez;
-            lbObservacoes.Text += rotina.observacoes;
+            lbRodouHoje.Text = "Rodou hoje: " + Rotina.rodarHoje(nomeR)[0];
+            lbDeveRodar.Text = "Deve rodar: " + Rotina.rodarHoje(nomeR)[1];
+            lbNomeRotina.Text = "Nome: "+rotina.nome_rotina;
+            lbChamadoBase.Text = "Chamado base: "+rotina.chamado_base;
+            lbRequerente.Text = "Requerente: "+rotina.nome_requerente;
+            lbPeriodo.Text = "Periodo: "+rotina.periodo;
+            lbQuandoRodar.Text = "Quando rodar: "+rotina.quando_rodar;
+            lbUltimaVez.Text = "Ultima vez: "+rotina.ultima_vez;
+            lbDataCriacao.Text = "Data criacao: " + rotina.data_criacao;
+            lbObservacoes.Text = "Observacoes: "+rotina.observacoes;
         }
         public void lerQuery(string queryArquivo)
         {
@@ -287,7 +292,11 @@ namespace DMQuery
             {
                 try
                 {
-                    if (temRotina()) { Rotina.atualizarUltVez(cmbRotinas.SelectedItem.ToString()); }
+                    if (temRotina()) 
+                    { 
+                        Rotina.atualizarUltVez(cmbRotinas.SelectedItem.ToString());
+                        preencherRotina(cmbRotinas.SelectedItem.ToString());
+                    }
                     XLWorkbook relat = (XLWorkbook)e.Result;
                     salvarRelatorio(relat);
                     MessageBox.Show("Query executada com sucesso!");
@@ -315,8 +324,6 @@ namespace DMQuery
                     Rotina rotina = Rotina.lerRotina(cmbRotinas.SelectedItem.ToString());
                     preencherRotina(cmbRotinas.SelectedItem.ToString());
                     txtQuery.Text = rotina.query_base;
-                    lbRodouHoje.Text = "Rodou hoje: " + Rotina.rodarHoje(cmbRotinas.SelectedItem.ToString())[0];
-                    lbDeveRodar.Text = "Deve rodar: " + Rotina.rodarHoje(cmbRotinas.SelectedItem.ToString())[1];
                     nomeRelatorio = DateTime.Now.ToString("ddMMyyyy") + "-" + rotina.nome_rotina + ".xlsx";
                     txtArquivoRequerente.Text = rotina.pasta_requerente.Replace("\\", "/") + "/" + DateTime.Now.ToString("ddMMyyyy") + "-" + rotina.nome_rotina + ".xlsx";
                 }

@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿//using DocumentFormat.OpenXml.Drawing;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -22,6 +23,31 @@ namespace DMQuery
         public string data_criacao { get; set; }
         public string ultima_vez { get; set; }
 
+        private static bool primeiroDia()
+        {
+            DateTime date = DateTime.Now;
+            if (date.DayOfWeek != DayOfWeek.Saturday && date.DayOfWeek != DayOfWeek.Sunday && date.Day == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        private static bool ultimoDia()
+        {
+            DateTime date = DateTime.Now;
+            if (date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday)
+            {
+                return false;
+            }
+
+            int lastDayOfMonth = DateTime.DaysInMonth(date.Year, date.Month);
+            DateTime lastDay = new DateTime(date.Year, date.Month, lastDayOfMonth);
+
+            return date == lastDay || (date > lastDay.AddDays(-7) && date.DayOfWeek == DayOfWeek.Friday);
+        }
         public static Rotina lerRotina(string arquivoRotina)
         {
             StreamReader rotina = new StreamReader(arquivoRotina);
@@ -42,7 +68,75 @@ namespace DMQuery
             rotw.Write(json);
             rotw.Close();
         }
+        public static string[] rodarHoje(string nomeR)
+        {
+            //foi rodado hoje / deve ser rodado hoje
+            string diaDaSemana = DateTime.Now.DayOfWeek.ToString();
+            string[] r = new string[] { "N", "" };
+            string[] externo = new string[] {"Chamado GLPI", "Email", "Outro" };
+            StreamReader rotina = new StreamReader("Rotinas/" + nomeR);
+            string rot = rotina.ReadToEnd().ToString();
+            rotina.Close();
+            Rotina rotinajson = JsonConvert.DeserializeObject<Rotina>(rot);
+            if (rotinajson.ultima_vez == DateTime.Now.ToString("yyyy-MM-dd"))
+            {
+                r[0] = "S";
+            }
+            if (externo.Contains(rotinajson.periodo))
+            {
+                r[1] = rotinajson.periodo;
+            }
+            else if (rotinajson.periodo == "Semanal")
+            {
+                if (rotinajson.quando_rodar == "Domingo" && diaDaSemana == "Sunday")
+                {
+                    r[1] = "S";
+                }
+                else if (rotinajson.quando_rodar == "Segunda-Feira" && diaDaSemana == "Moonday")
+                {
+                    r[1] = "S";
+                }
+                else if (rotinajson.quando_rodar == "Terca-Feira" && diaDaSemana == "Tuesday")
+                {
+                    r[1] = "S";
+                }
+                else if (rotinajson.quando_rodar == "Quarta-Feira" && diaDaSemana == "Wednesday")
+                {
+                    r[1] = "S";
+                }
+                else if (rotinajson.quando_rodar == "Quinta-Feira" && diaDaSemana == "Thursday")
+                {
+                    r[1] = "S";
+                }
+                else if (rotinajson.quando_rodar == "Sexta-Feira" && diaDaSemana == "Friday")
+                {
+                    r[1] = "S";
+                }
+                else if (rotinajson.quando_rodar == "Sabado" && diaDaSemana == "Saturday")
+                {
+                    r[1] = "S";
+                }
+                else { r[1] = "N"; }
+            }
+            else if (rotinajson.periodo == "Mensal")
+            {
+                if (rotinajson.quando_rodar == "Primeiro dia" && primeiroDia())
+                {
+                    r[1] = "S";
+                }
+                else if(rotinajson.quando_rodar == "Ultimo dia" && ultimoDia())
+                {
+                    r[1] = "S";
+                }
+                else if (rotinajson.quando_rodar == DateTime.Now.ToString("dd"))
+                {
+                    r[1] = "S";
+                }
+                else { r[1] = "N"; }
+            }
 
+            return r;
+        }
         public static void criarRotina(string nomeR, string chamadoB, string queryB, string nomeReq, string periodoR, string observacoesR, string pastaReq, string quandoR = "")
         {
             var rotina = new

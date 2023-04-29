@@ -302,7 +302,7 @@
             // 
             this.lbDeveRodar.AutoSize = true;
             this.lbDeveRodar.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDeveRodar.Location = new System.Drawing.Point(26, 115);
+            this.lbDeveRodar.Location = new System.Drawing.Point(127, 115);
             this.lbDeveRodar.Name = "lbDeveRodar";
             this.lbDeveRodar.Size = new System.Drawing.Size(57, 16);
             this.lbDeveRodar.TabIndex = 15;
@@ -312,7 +312,7 @@
             // 
             this.lbRodouHoje.AutoSize = true;
             this.lbRodouHoje.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbRodouHoje.Location = new System.Drawing.Point(107, 115);
+            this.lbRodouHoje.Location = new System.Drawing.Point(36, 115);
             this.lbRodouHoje.Name = "lbRodouHoje";
             this.lbRodouHoje.Size = new System.Drawing.Size(57, 16);
             this.lbRodouHoje.TabIndex = 16;

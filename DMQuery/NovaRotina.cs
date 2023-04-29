@@ -116,14 +116,13 @@ namespace DMQuery
             try
             {
                 string queryB = Corefunc.lerQuery(arquivoQueryB, nomeR);
-                if (periodoSelec)
+                if (periodoSelec && cmbQuandoRodar.SelectedItem.ToString() != "Diario")
                 {
                     string quandoR = controleSelec.Text;
                     Rotina.criarRotina(nomeR, chamadoB, queryB, nomeReq, periodoR, observacoes, pastaReq, quandoR);
                 }
                 else
                 {
-                    MessageBox.Show("aqui");
                     Rotina.criarRotina(nomeR, chamadoB, queryB, nomeReq, periodoR, observacoes, pastaReq);
                 }
                 MessageBox.Show("Rotina criada com sucesso");

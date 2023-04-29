@@ -134,6 +134,10 @@ namespace DMQuery
                 }
                 else { r[1] = "Nao"; }
             }
+            else if (rotinajson.periodo == "Diario")
+            {
+                r[1] = "Sim";
+            }
 
             return r;
         }

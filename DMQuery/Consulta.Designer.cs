@@ -55,6 +55,7 @@
             this.lbDeveRodar = new System.Windows.Forms.Label();
             this.lbRodouHoje = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lbDataCriacao = new System.Windows.Forms.Label();
             this.lbObservacoes = new System.Windows.Forms.Label();
             this.lbUltimaVez = new System.Windows.Forms.Label();
             this.lbQuandoRodar = new System.Windows.Forms.Label();
@@ -63,7 +64,6 @@
             this.lbChamadoBase = new System.Windows.Forms.Label();
             this.lbNomeRotina = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.lbDataCriacao = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -368,11 +368,18 @@
             this.panel2.Size = new System.Drawing.Size(253, 362);
             this.panel2.TabIndex = 17;
             // 
+            // lbDataCriacao
+            // 
+            this.lbDataCriacao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbDataCriacao.Location = new System.Drawing.Point(9, 142);
+            this.lbDataCriacao.Name = "lbDataCriacao";
+            this.lbDataCriacao.Size = new System.Drawing.Size(218, 20);
+            this.lbDataCriacao.TabIndex = 7;
+            this.lbDataCriacao.Text = "Data criacao:   ";
+            // 
             // lbObservacoes
             // 
-            this.lbObservacoes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbObservacoes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbObservacoes.Location = new System.Drawing.Point(9, 162);
             this.lbObservacoes.Name = "lbObservacoes";
             this.lbObservacoes.Size = new System.Drawing.Size(231, 187);
@@ -381,9 +388,7 @@
             // 
             // lbUltimaVez
             // 
-            this.lbUltimaVez.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbUltimaVez.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbUltimaVez.Location = new System.Drawing.Point(9, 122);
             this.lbUltimaVez.Name = "lbUltimaVez";
             this.lbUltimaVez.Size = new System.Drawing.Size(218, 20);
@@ -392,9 +397,7 @@
             // 
             // lbQuandoRodar
             // 
-            this.lbQuandoRodar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbQuandoRodar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbQuandoRodar.Location = new System.Drawing.Point(8, 102);
             this.lbQuandoRodar.Name = "lbQuandoRodar";
             this.lbQuandoRodar.Size = new System.Drawing.Size(219, 20);
@@ -403,9 +406,7 @@
             // 
             // lbPeriodo
             // 
-            this.lbPeriodo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbPeriodo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbPeriodo.Location = new System.Drawing.Point(9, 82);
             this.lbPeriodo.Name = "lbPeriodo";
             this.lbPeriodo.Size = new System.Drawing.Size(218, 20);
@@ -414,9 +415,7 @@
             // 
             // lbRequerente
             // 
-            this.lbRequerente.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbRequerente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbRequerente.Location = new System.Drawing.Point(8, 62);
             this.lbRequerente.Name = "lbRequerente";
             this.lbRequerente.Size = new System.Drawing.Size(219, 20);
@@ -425,9 +424,7 @@
             // 
             // lbChamadoBase
             // 
-            this.lbChamadoBase.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbChamadoBase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbChamadoBase.Location = new System.Drawing.Point(8, 42);
             this.lbChamadoBase.Name = "lbChamadoBase";
             this.lbChamadoBase.Size = new System.Drawing.Size(219, 20);
@@ -436,9 +433,7 @@
             // 
             // lbNomeRotina
             // 
-            this.lbNomeRotina.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbNomeRotina.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbNomeRotina.Location = new System.Drawing.Point(8, 23);
             this.lbNomeRotina.Name = "lbNomeRotina";
             this.lbNomeRotina.Size = new System.Drawing.Size(219, 20);
@@ -455,17 +450,6 @@
             this.label3.Size = new System.Drawing.Size(46, 20);
             this.label3.TabIndex = 18;
             this.label3.Text = "Rotina";
-            // 
-            // lbDataCriacao
-            // 
-            this.lbDataCriacao.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbDataCriacao.Location = new System.Drawing.Point(9, 142);
-            this.lbDataCriacao.Name = "lbDataCriacao";
-            this.lbDataCriacao.Size = new System.Drawing.Size(218, 20);
-            this.lbDataCriacao.TabIndex = 7;
-            this.lbDataCriacao.Text = "Data criacao:   ";
             // 
             // Consulta
             // 

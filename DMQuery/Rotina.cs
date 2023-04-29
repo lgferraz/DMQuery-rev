@@ -180,7 +180,7 @@ namespace DMQuery
             rotNova.chamado_base = chamadoB;
             rotNova.nome_requerente = nomeReq;
             rotNova.periodo = periodo;
-            if (periodo != "Diario") { rotNova.quando_rodar = quandoR; }
+            if (periodo != "Diario") { rotNova.quando_rodar = quandoR; } else { rotNova.quando_rodar = ""; }
             rotNova.observacoes = observacoes;
             rotNova.pasta_requerente = pastaReq;
             rotNova.query_base= queryB;

@@ -54,8 +54,18 @@
             this.bntEditar = new System.Windows.Forms.Button();
             this.lbDeveRodar = new System.Windows.Forms.Label();
             this.lbRodouHoje = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lbObservacoes = new System.Windows.Forms.Label();
+            this.lbUltimaVez = new System.Windows.Forms.Label();
+            this.lbQuandoRodar = new System.Windows.Forms.Label();
+            this.lbPeriodo = new System.Windows.Forms.Label();
+            this.lbRequerente = new System.Windows.Forms.Label();
+            this.lbChamadoBase = new System.Windows.Forms.Label();
+            this.lbNomeRotina = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -104,7 +114,7 @@
             this.txtQuery.Multiline = true;
             this.txtQuery.Name = "txtQuery";
             this.txtQuery.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtQuery.Size = new System.Drawing.Size(936, 362);
+            this.txtQuery.Size = new System.Drawing.Size(663, 362);
             this.txtQuery.TabIndex = 2;
             this.txtQuery.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             this.txtQuery.DragDrop += new System.Windows.Forms.DragEventHandler(this.txtQuery_DragDrop);
@@ -339,11 +349,97 @@
             this.lbRodouHoje.TabIndex = 16;
             this.lbRodouHoje.Text = "Rodou hoje:";
             // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.lbObservacoes);
+            this.panel2.Controls.Add(this.lbUltimaVez);
+            this.panel2.Controls.Add(this.lbQuandoRodar);
+            this.panel2.Controls.Add(this.lbPeriodo);
+            this.panel2.Controls.Add(this.lbRequerente);
+            this.panel2.Controls.Add(this.lbChamadoBase);
+            this.panel2.Controls.Add(this.lbNomeRotina);
+            this.panel2.Location = new System.Drawing.Point(697, 136);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(253, 362);
+            this.panel2.TabIndex = 17;
+            // 
+            // lbObservacoes
+            // 
+            this.lbObservacoes.Location = new System.Drawing.Point(8, 142);
+            this.lbObservacoes.Name = "lbObservacoes";
+            this.lbObservacoes.Size = new System.Drawing.Size(219, 208);
+            this.lbObservacoes.TabIndex = 6;
+            this.lbObservacoes.Text = "Observacoes:   ";
+            // 
+            // lbUltimaVez
+            // 
+            this.lbUltimaVez.Location = new System.Drawing.Point(9, 122);
+            this.lbUltimaVez.Name = "lbUltimaVez";
+            this.lbUltimaVez.Size = new System.Drawing.Size(229, 20);
+            this.lbUltimaVez.TabIndex = 5;
+            this.lbUltimaVez.Text = "Ultima vez:   ";
+            // 
+            // lbQuandoRodar
+            // 
+            this.lbQuandoRodar.Location = new System.Drawing.Point(8, 102);
+            this.lbQuandoRodar.Name = "lbQuandoRodar";
+            this.lbQuandoRodar.Size = new System.Drawing.Size(230, 20);
+            this.lbQuandoRodar.TabIndex = 4;
+            this.lbQuandoRodar.Text = "Quando rodar:   ";
+            // 
+            // lbPeriodo
+            // 
+            this.lbPeriodo.Location = new System.Drawing.Point(9, 82);
+            this.lbPeriodo.Name = "lbPeriodo";
+            this.lbPeriodo.Size = new System.Drawing.Size(218, 20);
+            this.lbPeriodo.TabIndex = 3;
+            this.lbPeriodo.Text = "Periodo:  ";
+            // 
+            // lbRequerente
+            // 
+            this.lbRequerente.Location = new System.Drawing.Point(8, 62);
+            this.lbRequerente.Name = "lbRequerente";
+            this.lbRequerente.Size = new System.Drawing.Size(219, 20);
+            this.lbRequerente.TabIndex = 2;
+            this.lbRequerente.Text = "Requerente: ";
+            // 
+            // lbChamadoBase
+            // 
+            this.lbChamadoBase.Location = new System.Drawing.Point(8, 42);
+            this.lbChamadoBase.Name = "lbChamadoBase";
+            this.lbChamadoBase.Size = new System.Drawing.Size(219, 20);
+            this.lbChamadoBase.TabIndex = 1;
+            this.lbChamadoBase.Text = "Chamado base: ";
+            // 
+            // lbNomeRotina
+            // 
+            this.lbNomeRotina.Location = new System.Drawing.Point(8, 22);
+            this.lbNomeRotina.Name = "lbNomeRotina";
+            this.lbNomeRotina.Size = new System.Drawing.Size(219, 20);
+            this.lbNomeRotina.TabIndex = 0;
+            this.lbNomeRotina.Text = "Nome:";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(706, 125);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(46, 20);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "Rotina";
+            // 
             // Consulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(964, 637);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.lbRodouHoje);
             this.Controls.Add(this.lbDeveRodar);
             this.Controls.Add(this.bntEditar);
@@ -368,6 +464,7 @@
             this.panel1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -401,6 +498,15 @@
         private System.Windows.Forms.Button bntEditar;
         private System.Windows.Forms.Label lbDeveRodar;
         private System.Windows.Forms.Label lbRodouHoje;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbChamadoBase;
+        private System.Windows.Forms.Label lbNomeRotina;
+        private System.Windows.Forms.Label lbObservacoes;
+        private System.Windows.Forms.Label lbUltimaVez;
+        private System.Windows.Forms.Label lbQuandoRodar;
+        private System.Windows.Forms.Label lbPeriodo;
+        private System.Windows.Forms.Label lbRequerente;
     }
 }
 

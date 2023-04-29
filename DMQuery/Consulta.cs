@@ -28,6 +28,13 @@ namespace DMQuery
         public string nomeRelatorio = "*";
         public void limparRot()
         {
+            lbNomeRotina.Text = "Nome: ";
+            lbChamadoBase.Text = "Chamado base: ";
+            lbRequerente.Text = "Requerente: ";
+            lbPeriodo.Text = "Periodo: ";
+            lbQuandoRodar.Text = "Quando rodar: ";
+            lbUltimaVez.Text = "Ultima vez: ";
+            lbObservacoes.Text = "Observacoes: ";
             txtArquivoQuery.Text = "";
             txtArquivoRequerente.Text = "";
             lbRodouHoje.Text = "Rodou hoje: ";
@@ -37,6 +44,13 @@ namespace DMQuery
         }
         public void limpar()
         {
+            lbNomeRotina.Text = "Nome: ";
+            lbChamadoBase.Text = "Chamado base: ";
+            lbRequerente.Text = "Requerente: ";
+            lbPeriodo.Text = "Periodo: ";
+            lbQuandoRodar.Text = "Quando rodar: ";
+            lbUltimaVez.Text = "Ultima vez: ";
+            lbObservacoes.Text = "Observacoes: ";
             txtArquivoQuery.Text = "";
             txtArquivoRequerente.Text = "";
             lbRodouHoje.Text = "Rodou hoje: ";
@@ -133,6 +147,17 @@ namespace DMQuery
                 }
 
             }
+        }
+        public void preencherRotina(string nomeR)
+        {
+            Rotina rotina = Rotina.lerRotina(nomeR);
+            lbNomeRotina.Text += rotina.nome_rotina;
+            lbChamadoBase.Text += rotina.chamado_base;
+            lbRequerente.Text += rotina.nome_requerente;
+            lbPeriodo.Text += rotina.periodo;
+            lbQuandoRodar.Text += rotina.quando_rodar;
+            lbUltimaVez.Text += rotina.ultima_vez;
+            lbObservacoes.Text += rotina.observacoes;
         }
         public void lerQuery(string queryArquivo)
         {
@@ -287,7 +312,8 @@ namespace DMQuery
                 if (cmbRotinas.SelectedItem.ToString() != "")
                 {
                     limparRot();
-                    Rotina rotina = Rotina.lerRotina(Directory.GetCurrentDirectory() + "\\Rotinas\\" + cmbRotinas.SelectedItem.ToString());
+                    Rotina rotina = Rotina.lerRotina(cmbRotinas.SelectedItem.ToString());
+                    preencherRotina(cmbRotinas.SelectedItem.ToString());
                     txtQuery.Text = rotina.query_base;
                     lbRodouHoje.Text = "Rodou hoje: " + Rotina.rodarHoje(cmbRotinas.SelectedItem.ToString())[0];
                     lbDeveRodar.Text = "Deve rodar: " + Rotina.rodarHoje(cmbRotinas.SelectedItem.ToString())[1];

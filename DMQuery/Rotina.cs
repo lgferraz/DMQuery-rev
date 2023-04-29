@@ -48,9 +48,9 @@ namespace DMQuery
 
             return date == lastDay || (date > lastDay.AddDays(-7) && date.DayOfWeek == DayOfWeek.Friday);
         }
-        public static Rotina lerRotina(string arquivoRotina)
+        public static Rotina lerRotina(string nomeR)
         {
-            StreamReader rotina = new StreamReader(arquivoRotina);
+            StreamReader rotina = new StreamReader("Rotinas/" + nomeR);
             string rot = rotina.ReadToEnd().ToString();
             Rotina rotinajson = JsonConvert.DeserializeObject<Rotina>(rot);
             rotina.Close();

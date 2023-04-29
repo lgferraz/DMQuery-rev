@@ -368,6 +368,9 @@
             // 
             // lbObservacoes
             // 
+            this.lbObservacoes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lbObservacoes.Location = new System.Drawing.Point(8, 142);
             this.lbObservacoes.Name = "lbObservacoes";
             this.lbObservacoes.Size = new System.Drawing.Size(219, 208);
@@ -376,22 +379,31 @@
             // 
             // lbUltimaVez
             // 
+            this.lbUltimaVez.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lbUltimaVez.Location = new System.Drawing.Point(9, 122);
             this.lbUltimaVez.Name = "lbUltimaVez";
-            this.lbUltimaVez.Size = new System.Drawing.Size(229, 20);
+            this.lbUltimaVez.Size = new System.Drawing.Size(218, 20);
             this.lbUltimaVez.TabIndex = 5;
             this.lbUltimaVez.Text = "Ultima vez:   ";
             // 
             // lbQuandoRodar
             // 
+            this.lbQuandoRodar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lbQuandoRodar.Location = new System.Drawing.Point(8, 102);
             this.lbQuandoRodar.Name = "lbQuandoRodar";
-            this.lbQuandoRodar.Size = new System.Drawing.Size(230, 20);
+            this.lbQuandoRodar.Size = new System.Drawing.Size(219, 20);
             this.lbQuandoRodar.TabIndex = 4;
             this.lbQuandoRodar.Text = "Quando rodar:   ";
             // 
             // lbPeriodo
             // 
+            this.lbPeriodo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lbPeriodo.Location = new System.Drawing.Point(9, 82);
             this.lbPeriodo.Name = "lbPeriodo";
             this.lbPeriodo.Size = new System.Drawing.Size(218, 20);
@@ -400,6 +412,9 @@
             // 
             // lbRequerente
             // 
+            this.lbRequerente.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lbRequerente.Location = new System.Drawing.Point(8, 62);
             this.lbRequerente.Name = "lbRequerente";
             this.lbRequerente.Size = new System.Drawing.Size(219, 20);
@@ -408,6 +423,9 @@
             // 
             // lbChamadoBase
             // 
+            this.lbChamadoBase.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lbChamadoBase.Location = new System.Drawing.Point(8, 42);
             this.lbChamadoBase.Name = "lbChamadoBase";
             this.lbChamadoBase.Size = new System.Drawing.Size(219, 20);
@@ -416,7 +434,10 @@
             // 
             // lbNomeRotina
             // 
-            this.lbNomeRotina.Location = new System.Drawing.Point(8, 22);
+            this.lbNomeRotina.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbNomeRotina.Location = new System.Drawing.Point(8, 23);
             this.lbNomeRotina.Name = "lbNomeRotina";
             this.lbNomeRotina.Size = new System.Drawing.Size(219, 20);
             this.lbNomeRotina.TabIndex = 0;

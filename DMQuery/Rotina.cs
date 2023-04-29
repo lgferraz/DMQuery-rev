@@ -1,4 +1,5 @@
 ﻿//using DocumentFormat.OpenXml.Drawing;
+using DocumentFormat.OpenXml.Spreadsheet;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -143,6 +144,7 @@ namespace DMQuery
         }
         public static void criarRotina(string nomeR, string chamadoB, string queryB, string nomeReq, string periodoR, string observacoesR, string pastaReq, string quandoR = "")
         {
+            nomeR = nomeR.Replace(" ", "_");
             var rotina = new
             {
                 nome_rotina = nomeR,
@@ -160,6 +162,36 @@ namespace DMQuery
             StreamWriter rot = new StreamWriter("Rotinas/"+nomeR+".rot");
             rot.Write(json);
             rot.Close();
+        }
+        public static void apagarRotina(string nomeArquivo)
+        {
+            string caminho = Directory.GetCurrentDirectory()+"/Rotinas/" + nomeArquivo;
+            if (File.Exists(caminho))
+            {
+                File.Delete(caminho);
+            }
+        }
+        public static void editarRotina(string nomeArquivo, string nomeNovo, string chamadoB, string nomeReq, string periodo, string observacoes, string pastaReq, string queryB, string quandoR = "")
+        {
+            Rotina rotAntiga = lerRotina(nomeArquivo);
+            string nome_antigo = rotAntiga.nome_rotina;
+            Rotina rotNova = rotAntiga;
+            rotNova.nome_rotina = nomeNovo.Replace(" ", "_");
+            rotNova.chamado_base = chamadoB;
+            rotNova.nome_requerente = nomeReq;
+            rotNova.periodo = periodo;
+            if (periodo != "Diario") { rotNova.quando_rodar = quandoR; }
+            rotNova.observacoes = observacoes;
+            rotNova.pasta_requerente = pastaReq;
+            rotNova.query_base= queryB;
+            string json = JsonConvert.SerializeObject(rotNova, Formatting.Indented);
+            StreamWriter rotn = new StreamWriter("Rotinas/" + rotNova.nome_rotina + ".rot");
+            if (nome_antigo != rotNova.nome_rotina) 
+            {
+                apagarRotina(nomeArquivo); 
+            }
+            rotn.Write(json);
+            rotn.Close();
         }
         public static string[] lerRotinas()
         {   

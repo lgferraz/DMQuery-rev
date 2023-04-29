@@ -58,6 +58,8 @@ namespace DMQuery
             lbRodouHoje.Text = "Rodou hoje: ";
             lbDeveRodar.Text = "Deve rodar: ";
             txtQuery.Text = "";
+            cmbRotinas.Items.Clear();
+            cmbRotinas.Items.Add("");
             cmbRotinas.SelectedItem = "";
             nomeRelatorio = "*";
         }
@@ -367,7 +369,17 @@ namespace DMQuery
 
         private void bntEditar_Click(object sender, EventArgs e)
         {
-
+            if (temRotina())
+            {
+                EditarRotina editarR = new EditarRotina();
+                editarR.nomeRotina = cmbRotinas.SelectedItem.ToString();
+                editarR.Show();
+                limpar();
+            }
+            else
+            {
+                MessageBox.Show("Selecione uma rotina valida");
+            }
         }
     }
 }

@@ -106,7 +106,7 @@ namespace DMQuery
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            string nomeR = txtNomeRotina.Text.Replace(" ", "_");
+            string nomeR = txtNomeRotina.Text;
             string chamadoB = txtChamadoBase.Text;
             string nomeReq = txtNomeRequerente.Text;
             string periodoR = cmbQuandoRodar.Text;
@@ -154,6 +154,76 @@ namespace DMQuery
                 controleSelec = periodoDesc(opcao);
                 this.Controls.Add(controleSelec);
             }
+        }
+
+        private void txtArquivoQueryBase_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPastaRequerente_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtObservacoes_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNomeRequerente_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtChamadoBase_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNomeRotina_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbQuandoRodar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

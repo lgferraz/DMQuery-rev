@@ -65,11 +65,13 @@
             // txtArquivoQuery
             // 
             this.txtArquivoQuery.AllowDrop = true;
+            this.txtArquivoQuery.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtArquivoQuery.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.txtArquivoQuery.Location = new System.Drawing.Point(15, 50);
             this.txtArquivoQuery.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtArquivoQuery.Name = "txtArquivoQuery";
-            this.txtArquivoQuery.Size = new System.Drawing.Size(562, 26);
+            this.txtArquivoQuery.Size = new System.Drawing.Size(897, 26);
             this.txtArquivoQuery.TabIndex = 0;
             this.txtArquivoQuery.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.txtArquivoQuery.DragDrop += new System.Windows.Forms.DragEventHandler(this.txtCaminhoQuery_DragDrop);
@@ -78,8 +80,9 @@
             // btnAbrirArquivo
             // 
             this.btnAbrirArquivo.AllowDrop = true;
+            this.btnAbrirArquivo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAbrirArquivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAbrirArquivo.Location = new System.Drawing.Point(581, 50);
+            this.btnAbrirArquivo.Location = new System.Drawing.Point(916, 50);
             this.btnAbrirArquivo.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnAbrirArquivo.Name = "btnAbrirArquivo";
             this.btnAbrirArquivo.Size = new System.Drawing.Size(34, 27);
@@ -91,6 +94,9 @@
             // txtQuery
             // 
             this.txtQuery.AllowDrop = true;
+            this.txtQuery.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtQuery.Font = new System.Drawing.Font("Cascadia Mono Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtQuery.Location = new System.Drawing.Point(14, 136);
             this.txtQuery.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -98,7 +104,7 @@
             this.txtQuery.Multiline = true;
             this.txtQuery.Name = "txtQuery";
             this.txtQuery.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtQuery.Size = new System.Drawing.Size(601, 362);
+            this.txtQuery.Size = new System.Drawing.Size(936, 362);
             this.txtQuery.TabIndex = 2;
             this.txtQuery.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             this.txtQuery.DragDrop += new System.Windows.Forms.DragEventHandler(this.txtQuery_DragDrop);
@@ -106,8 +112,9 @@
             // 
             // btnExecutar
             // 
+            this.btnExecutar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExecutar.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExecutar.Location = new System.Drawing.Point(529, 521);
+            this.btnExecutar.Location = new System.Drawing.Point(864, 521);
             this.btnExecutar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnExecutar.Name = "btnExecutar";
             this.btnExecutar.Size = new System.Drawing.Size(87, 41);
@@ -118,13 +125,15 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.chkSomenteParaMim);
             this.panel1.Controls.Add(this.btnPastaRequerente);
             this.panel1.Controls.Add(this.txtArquivoRequerente);
             this.panel1.Location = new System.Drawing.Point(15, 521);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(508, 79);
+            this.panel1.Size = new System.Drawing.Size(843, 79);
             this.panel1.TabIndex = 6;
             // 
             // chkSomenteParaMim
@@ -140,8 +149,9 @@
             // btnPastaRequerente
             // 
             this.btnPastaRequerente.AllowDrop = true;
+            this.btnPastaRequerente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPastaRequerente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPastaRequerente.Location = new System.Drawing.Point(461, 9);
+            this.btnPastaRequerente.Location = new System.Drawing.Point(796, 9);
             this.btnPastaRequerente.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnPastaRequerente.Name = "btnPastaRequerente";
             this.btnPastaRequerente.Size = new System.Drawing.Size(37, 31);
@@ -153,16 +163,20 @@
             // txtArquivoRequerente
             // 
             this.txtArquivoRequerente.AllowDrop = true;
+            this.txtArquivoRequerente.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtArquivoRequerente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.txtArquivoRequerente.Location = new System.Drawing.Point(6, 10);
             this.txtArquivoRequerente.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtArquivoRequerente.Name = "txtArquivoRequerente";
-            this.txtArquivoRequerente.Size = new System.Drawing.Size(451, 26);
+            this.txtArquivoRequerente.Size = new System.Drawing.Size(786, 26);
             this.txtArquivoRequerente.TabIndex = 7;
             this.txtArquivoRequerente.TextChanged += new System.EventHandler(this.txtRequerente_TextChanged);
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Narrow", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(19, 507);
@@ -173,6 +187,8 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(12, 27);
@@ -189,8 +205,9 @@
             // 
             // bntCancelar
             // 
+            this.bntCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.bntCancelar.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bntCancelar.Location = new System.Drawing.Point(529, 568);
+            this.bntCancelar.Location = new System.Drawing.Point(864, 568);
             this.bntCancelar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.bntCancelar.Name = "bntCancelar";
             this.bntCancelar.Size = new System.Drawing.Size(87, 32);
@@ -206,7 +223,7 @@
             this.sobreToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(629, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(964, 24);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -265,18 +282,21 @@
             // 
             // cmbRotinas
             // 
+            this.cmbRotinas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbRotinas.FormattingEnabled = true;
             this.cmbRotinas.Location = new System.Drawing.Point(15, 84);
             this.cmbRotinas.Name = "cmbRotinas";
-            this.cmbRotinas.Size = new System.Drawing.Size(562, 28);
+            this.cmbRotinas.Size = new System.Drawing.Size(897, 28);
             this.cmbRotinas.TabIndex = 12;
             this.cmbRotinas.SelectedIndexChanged += new System.EventHandler(this.cmbRotinas_SelectedIndexChanged);
             // 
             // btnLimpar
             // 
             this.btnLimpar.AllowDrop = true;
+            this.btnLimpar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpar.Location = new System.Drawing.Point(589, 606);
+            this.btnLimpar.Location = new System.Drawing.Point(924, 606);
             this.btnLimpar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(26, 27);
@@ -288,8 +308,9 @@
             // bntEditar
             // 
             this.bntEditar.AllowDrop = true;
+            this.bntEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bntEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bntEditar.Location = new System.Drawing.Point(581, 84);
+            this.bntEditar.Location = new System.Drawing.Point(916, 84);
             this.bntEditar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.bntEditar.Name = "bntEditar";
             this.bntEditar.Size = new System.Drawing.Size(34, 27);
@@ -322,7 +343,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(629, 637);
+            this.ClientSize = new System.Drawing.Size(964, 637);
             this.Controls.Add(this.lbRodouHoje);
             this.Controls.Add(this.lbDeveRodar);
             this.Controls.Add(this.bntEditar);

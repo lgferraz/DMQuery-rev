@@ -276,10 +276,10 @@
             // 
             this.btnLimpar.AllowDrop = true;
             this.btnLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpar.Location = new System.Drawing.Point(581, 84);
+            this.btnLimpar.Location = new System.Drawing.Point(589, 606);
             this.btnLimpar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(34, 27);
+            this.btnLimpar.Size = new System.Drawing.Size(26, 27);
             this.btnLimpar.TabIndex = 13;
             this.btnLimpar.Text = "🧹";
             this.btnLimpar.UseVisualStyleBackColor = true;
@@ -289,7 +289,7 @@
             // 
             this.bntEditar.AllowDrop = true;
             this.bntEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bntEditar.Location = new System.Drawing.Point(337, 20);
+            this.bntEditar.Location = new System.Drawing.Point(581, 84);
             this.bntEditar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.bntEditar.Name = "bntEditar";
             this.bntEditar.Size = new System.Drawing.Size(34, 27);

@@ -92,6 +92,17 @@ namespace DMQuery
         {
             return Arquivos.Excel(SQLCmd.Selecionar(query));
         }
+        public bool temRotina()
+        {
+            if (cmbRotinas.SelectedItem.ToString() != "")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public void salvarRelatorio(XLWorkbook relatorio)
         {
 
@@ -247,6 +258,7 @@ namespace DMQuery
             {
                 try
                 {
+                    if (temRotina()) { Rotina.atualizarUltVez(cmbRotinas.SelectedItem.ToString()); }
                     XLWorkbook relat = (XLWorkbook)e.Result;
                     salvarRelatorio(relat);
                     MessageBox.Show("Query executada com sucesso!");
@@ -312,6 +324,11 @@ namespace DMQuery
         {
             Consulta consultaN = new Consulta();
             consultaN.Show();
+        }
+
+        private void bntEditar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

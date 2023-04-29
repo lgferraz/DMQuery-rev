@@ -30,6 +30,18 @@ namespace DMQuery
             rotina.Close();
             return rotinajson;
         }
+        public static void atualizarUltVez(string nomeR)
+        {
+            StreamReader rotina = new StreamReader("Rotinas/" + nomeR);
+            string rot = rotina.ReadToEnd().ToString();
+            rotina.Close();
+            Rotina rotinajson = JsonConvert.DeserializeObject<Rotina>(rot);
+            rotinajson.ultima_vez = DateTime.Now.ToString("yyyy-MM-dd");
+            string json = JsonConvert.SerializeObject(rotinajson, Formatting.Indented);
+            StreamWriter rotw = new StreamWriter("Rotinas/" + nomeR);
+            rotw.Write(json);
+            rotw.Close();
+        }
 
         public static void criarRotina(string nomeR, string chamadoB, string queryB, string nomeReq, string periodoR, string observacoesR, string pastaReq, string quandoR = "")
         {

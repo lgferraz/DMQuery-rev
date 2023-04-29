@@ -45,12 +45,13 @@
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rotinasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.novaRotinaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.atualizarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.novaConsultaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.desconectarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmbRotinas = new System.Windows.Forms.ComboBox();
             this.btnLimpar = new System.Windows.Forms.Button();
-            this.novaConsultaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.desconectarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.atualizarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bntEditar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -223,15 +224,36 @@
             this.novaRotinaToolStripMenuItem,
             this.atualizarToolStripMenuItem});
             this.rotinasToolStripMenuItem.Name = "rotinasToolStripMenuItem";
-            this.rotinasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.rotinasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.rotinasToolStripMenuItem.Text = "Rotinas";
             // 
             // novaRotinaToolStripMenuItem
             // 
             this.novaRotinaToolStripMenuItem.Name = "novaRotinaToolStripMenuItem";
-            this.novaRotinaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.novaRotinaToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.novaRotinaToolStripMenuItem.Text = "Nova Rotina";
             this.novaRotinaToolStripMenuItem.Click += new System.EventHandler(this.novaRotinaToolStripMenuItem_Click);
+            // 
+            // atualizarToolStripMenuItem
+            // 
+            this.atualizarToolStripMenuItem.Name = "atualizarToolStripMenuItem";
+            this.atualizarToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.atualizarToolStripMenuItem.Text = "Atualizar";
+            this.atualizarToolStripMenuItem.Click += new System.EventHandler(this.atualizarToolStripMenuItem_Click);
+            // 
+            // novaConsultaToolStripMenuItem
+            // 
+            this.novaConsultaToolStripMenuItem.Name = "novaConsultaToolStripMenuItem";
+            this.novaConsultaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.novaConsultaToolStripMenuItem.Text = "Nova Consulta";
+            this.novaConsultaToolStripMenuItem.Click += new System.EventHandler(this.novaConsultaToolStripMenuItem_Click);
+            // 
+            // desconectarToolStripMenuItem
+            // 
+            this.desconectarToolStripMenuItem.Name = "desconectarToolStripMenuItem";
+            this.desconectarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.desconectarToolStripMenuItem.Text = "Desconectar";
+            this.desconectarToolStripMenuItem.Click += new System.EventHandler(this.desconectarToolStripMenuItem_Click);
             // 
             // sobreToolStripMenuItem
             // 
@@ -261,32 +283,25 @@
             this.btnLimpar.UseVisualStyleBackColor = true;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
-            // novaConsultaToolStripMenuItem
+            // bntEditar
             // 
-            this.novaConsultaToolStripMenuItem.Name = "novaConsultaToolStripMenuItem";
-            this.novaConsultaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.novaConsultaToolStripMenuItem.Text = "Nova Consulta";
-            this.novaConsultaToolStripMenuItem.Click += new System.EventHandler(this.novaConsultaToolStripMenuItem_Click);
-            // 
-            // desconectarToolStripMenuItem
-            // 
-            this.desconectarToolStripMenuItem.Name = "desconectarToolStripMenuItem";
-            this.desconectarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.desconectarToolStripMenuItem.Text = "Desconectar";
-            this.desconectarToolStripMenuItem.Click += new System.EventHandler(this.desconectarToolStripMenuItem_Click);
-            // 
-            // atualizarToolStripMenuItem
-            // 
-            this.atualizarToolStripMenuItem.Name = "atualizarToolStripMenuItem";
-            this.atualizarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.atualizarToolStripMenuItem.Text = "Atualizar";
-            this.atualizarToolStripMenuItem.Click += new System.EventHandler(this.atualizarToolStripMenuItem_Click);
+            this.bntEditar.AllowDrop = true;
+            this.bntEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bntEditar.Location = new System.Drawing.Point(337, 20);
+            this.bntEditar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.bntEditar.Name = "bntEditar";
+            this.bntEditar.Size = new System.Drawing.Size(34, 27);
+            this.bntEditar.TabIndex = 14;
+            this.bntEditar.Text = "🖊️";
+            this.bntEditar.UseVisualStyleBackColor = true;
+            this.bntEditar.Click += new System.EventHandler(this.bntEditar_Click);
             // 
             // Consulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(629, 637);
+            this.Controls.Add(this.bntEditar);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.cmbRotinas);
             this.Controls.Add(this.bntCancelar);
@@ -338,6 +353,7 @@
         private System.Windows.Forms.ToolStripMenuItem novaConsultaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem desconectarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem atualizarToolStripMenuItem;
+        private System.Windows.Forms.Button bntEditar;
     }
 }
 

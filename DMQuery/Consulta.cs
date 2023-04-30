@@ -1,4 +1,5 @@
 ﻿using ClosedXML.Excel;
+using DocumentFormat.OpenXml.Office.CustomUI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,9 +7,11 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -19,8 +22,65 @@ namespace DMQuery
         public Consulta()
         {
             InitializeComponent();
+            cmbRotinas.Items.Add("");
+            cmbRotinas.SelectedIndex= 0;
         }
         public string nomeRelatorio = "*";
+        public void limparRot()
+        {
+            lbNomeRotina.Text = "Nome: ";
+            lbChamadoBase.Text = "Chamado base: ";
+            lbRequerente.Text = "Requerente: ";
+            lbPeriodo.Text = "Periodo: ";
+            lbQuandoRodar.Text = "Quando rodar: ";
+            lbUltimaVez.Text = "Ultima vez: ";
+            lbDataCriacao.Text = "Data criacao: ";
+            lbObservacoes.Text = "Observacoes: ";
+            txtArquivoQuery.Text = "";
+            txtArquivoRequerente.Text = "";
+            lbRodouHoje.Text = "Rodou hoje: ";
+            lbDeveRodar.Text = "Deve rodar: ";
+            txtQuery.Text = "";
+            nomeRelatorio = "*";
+        }
+        public void limpar()
+        {
+            lbNomeRotina.Text = "Nome: ";
+            lbChamadoBase.Text = "Chamado base: ";
+            lbRequerente.Text = "Requerente: ";
+            lbPeriodo.Text = "Periodo: ";
+            lbQuandoRodar.Text = "Quando rodar: ";
+            lbUltimaVez.Text = "Ultima vez: ";
+            lbDataCriacao.Text = "Data criacao: ";
+            lbObservacoes.Text = "Observacoes: ";
+            txtArquivoQuery.Text = "";
+            txtArquivoRequerente.Text = "";
+            lbRodouHoje.Text = "Rodou hoje: ";
+            lbDeveRodar.Text = "Deve rodar: ";
+            txtQuery.Text = "";
+            cmbRotinas.Items.Clear();
+            cmbRotinas.Items.Add("");
+            cmbRotinas.SelectedItem = "";
+            nomeRelatorio = "*";
+        }
+        public void carregarRotinas()
+        {
+            try
+            {
+                string[] rotinas = Rotina.lerRotinas();
+                foreach (string rotina in rotinas)
+                {
+                    if (!cmbRotinas.Items.Contains(rotina))
+                    {
+                        cmbRotinas.Items.Add(rotina);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         public string abrirDialogo()
         {
             OpenFileDialog queryFile = new OpenFileDialog();
@@ -46,82 +106,84 @@ namespace DMQuery
                 MessageBox.Show("Caminho não especificado");
                 return "";
             }
+            nomeRelatorio = Path.GetFileNameWithoutExtension(relatFile.FileName.ToString());
+            nomeRelatorio = DateTime.Now.ToString("ddMMyyyy") + "-" + nomeRelatorio + ".xlsx";
             return relatFile.FileName.ToString();
-            
         }
         public XLWorkbook gerarRelatorio(string query)
         {
             return Arquivos.Excel(SQLCmd.Selecionar(query));
         }
-        public void salvarRelatorio(XLWorkbook relatorio)
+        public bool temRotina()
         {
-            if (chkSomenteParaMim.Checked == false)
+            if (cmbRotinas.SelectedItem.ToString() != "")
             {
-                if (txtArquivoQuery.Text != "")
-                {
-                    if (txtArquivoRequerente.Text != "")
-                    {
-                        relatorio.SaveAs(txtArquivoRequerente.Text);
-                        relatorio.SaveAs("RelatoriosGerados/" + nomeRelatorio);
-                    }
-                    else
-                    {
-                        relatorio.SaveAs(salvarDialogo());
-                        relatorio.SaveAs("RelatoriosGerados/" + nomeRelatorio);
-                    }
-                }
-                else
-                {
-                    string caminho = salvarDialogo();
-                    relatorio.SaveAs(caminho);
-                    Regex regex = new Regex(@"[^\\]*$");
-                    Match match = regex.Match(caminho);
-                    if (match.Success)
-                    {
-                        string nomeDoArquivo = match.Value;
-                        relatorio.SaveAs("RelatoriosGerados/" + DateTime.Now.ToString("ddMMyyyy") + "-" + nomeDoArquivo + ".xlsx");
-                    }
-
-                }
+                return true;
             }
             else
             {
-                if (txtArquivoQuery.Text != "")
+                return false;
+            }
+        }
+        public void salvarRelatorio(XLWorkbook relatorio)
+        {
+
+            if (chkSomenteParaMim.Checked && nomeRelatorio == "*")
+            {
+                relatorio.SaveAs(salvarDialogo());
+                relatorio.SaveAs("RelatoriosGerados/" + nomeRelatorio);
+            }
+            else if (chkSomenteParaMim.Checked)
+            {
+                relatorio.SaveAs("RelatoriosGerados/" + nomeRelatorio);
+            }
+            else
+            {
+                if (txtArquivoRequerente.Text != "")
                 {
-                    relatorio.SaveAs("RelatoriosGerados/"+nomeRelatorio);
+                    relatorio.SaveAs(txtArquivoRequerente.Text);
+                    relatorio.SaveAs("RelatoriosGerados/" + nomeRelatorio);
                 }
                 else
                 {
                     relatorio.SaveAs(salvarDialogo());
+                    relatorio.SaveAs("RelatoriosGerados/" + nomeRelatorio);
                 }
+
             }
+        }
+        public void preencherRotina(string nomeR)
+        {
+            Rotina rotina = Rotina.lerRotina(nomeR);
+            lbRodouHoje.Text = "Rodou hoje: " + Rotina.rodarHoje(nomeR)[0];
+            lbDeveRodar.Text = "Deve rodar: " + Rotina.rodarHoje(nomeR)[1];
+            lbNomeRotina.Text = "Nome: "+rotina.nome_rotina;
+            lbChamadoBase.Text = "Chamado base: "+rotina.chamado_base;
+            lbRequerente.Text = "Requerente: "+rotina.nome_requerente;
+            lbPeriodo.Text = "Periodo: "+rotina.periodo;
+            lbQuandoRodar.Text = "Quando rodar: "+rotina.quando_rodar;
+            lbUltimaVez.Text = "Ultima vez: "+rotina.ultima_vez;
+            lbDataCriacao.Text = "Data criacao: " + rotina.data_criacao;
+            lbObservacoes.Text = "Observacoes: "+rotina.observacoes;
         }
         public void lerQuery(string queryArquivo)
         {
-            try
-            {
-                StreamReader querytxt = new StreamReader(queryArquivo);
-                FileInfo arquivo = new FileInfo(queryArquivo);
-                nomeRelatorio = arquivo.Name.ToString();
-                nomeRelatorio = nomeRelatorio.Substring(0, nomeRelatorio.IndexOf(".")).Replace(" ", "-");
-                nomeRelatorio = DateTime.Now.ToString("ddMMyyyy") + "-" + nomeRelatorio + ".xlsx";
-                txtQuery.Text = querytxt.ReadToEnd();
-            }
-            catch 
-            {
-                //MessageBox.Show("Arquivo não especificado");
-            }
+            txtQuery.Text = Corefunc.lerQuery(queryArquivo, nomeRelatorio);
         }
         private void button1_Click(object sender, EventArgs e)
         {
             string queryFile = abrirDialogo();
+            limpar();
             txtArquivoQuery.Text = queryFile;
             lerQuery(txtArquivoQuery.Text);
+            nomeRelatorio = queryFile;
+            nomeRelatorio = Path.GetFileNameWithoutExtension(queryFile);
+            nomeRelatorio = DateTime.Now.ToString("ddMMyyyy") + "-" + nomeRelatorio + ".xlsx";
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            lerQuery(txtArquivoQuery.Text);
+            // lerQuery(txtArquivoQuery.Text);
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -131,9 +193,10 @@ namespace DMQuery
 
         private void txtCaminhoQuery_DragDrop(object sender, DragEventArgs e)
         {
-            string[] files = e.Data.GetData(DataFormats.FileDrop) as string[];  
+            string[] files = e.Data.GetData(DataFormats.FileDrop) as string[];
             if (files != null && files.Any())
-            txtArquivoQuery.Text = files.First(); 
+                limpar();
+                txtArquivoQuery.Text = files.First();
         }
 
         private void txtCaminhoQuery_DragOver(object sender, DragEventArgs e)
@@ -148,8 +211,14 @@ namespace DMQuery
         {
             string[] files = e.Data.GetData(DataFormats.FileDrop) as string[];
             if (files != null && files.Any())
-            txtArquivoQuery.Text = files.First();
-            lerQuery(files.First());
+                limpar();
+                txtArquivoQuery.Text = files.First();
+                string queryFile = files.First();
+                txtArquivoQuery.Text = queryFile;
+                lerQuery(txtArquivoQuery.Text);
+                nomeRelatorio = queryFile;
+                nomeRelatorio = Path.GetFileNameWithoutExtension(queryFile);
+                nomeRelatorio = DateTime.Now.ToString("ddMMyyyy") + "-" + nomeRelatorio + ".xlsx";
 
 
         }
@@ -192,12 +261,12 @@ namespace DMQuery
         {
             string relatArquivo = salvarDialogo();
             txtArquivoRequerente.Text = relatArquivo;
-            
+
         }
 
         private void Consulta_Load(object sender, EventArgs e)
         {
-
+            carregarRotinas();
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
@@ -208,9 +277,9 @@ namespace DMQuery
                 XLWorkbook relat = gerarRelatorio(query);
                 e.Result = relat;
             }
-            catch
+            catch (Exception ex)
             {
-                //
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -223,10 +292,16 @@ namespace DMQuery
             }
             else
             {
-                XLWorkbook relat = (XLWorkbook)e.Result;
                 try
                 {
+                    if (temRotina()) 
+                    { 
+                        Rotina.atualizarUltVez(cmbRotinas.SelectedItem.ToString());
+                        preencherRotina(cmbRotinas.SelectedItem.ToString());
+                    }
+                    XLWorkbook relat = (XLWorkbook)e.Result;
                     salvarRelatorio(relat);
+                    MessageBox.Show("Query executada com sucesso!");
                 }
                 catch (Exception ex)
                 {
@@ -239,6 +314,72 @@ namespace DMQuery
         private void bntCancelar_Click(object sender, EventArgs e)
         {
             backgroundWorker1.CancelAsync();
+        }
+
+        private void cmbRotinas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cmbRotinas.SelectedItem.ToString() != "")
+                {
+                    limparRot();
+                    Rotina rotina = Rotina.lerRotina(cmbRotinas.SelectedItem.ToString());
+                    preencherRotina(cmbRotinas.SelectedItem.ToString());
+                    txtQuery.Text = rotina.query_base;
+                    nomeRelatorio = DateTime.Now.ToString("ddMMyyyy") + "-" + rotina.nome_rotina + ".xlsx";
+                    txtArquivoRequerente.Text = rotina.pasta_requerente.Replace("\\", "/") + "/" + DateTime.Now.ToString("ddMMyyyy") + "-" + rotina.nome_rotina + ".xlsx";
+                }
+                else
+                {
+                    limparRot();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            limpar();
+        }
+
+        private void novaRotinaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NovaRotina novaR = new NovaRotina();
+            novaR.Show();
+        }
+
+        private void atualizarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            carregarRotinas();
+        }
+
+        private void desconectarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void novaConsultaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Consulta consultaN = new Consulta();
+            consultaN.Show();
+        }
+
+        private void bntEditar_Click(object sender, EventArgs e)
+        {
+            if (temRotina())
+            {
+                EditarRotina editarR = new EditarRotina();
+                editarR.nomeRotina = cmbRotinas.SelectedItem.ToString();
+                editarR.Show();
+                limpar();
+            }
+            else
+            {
+                MessageBox.Show("Selecione uma rotina valida");
+            }
         }
     }
 }

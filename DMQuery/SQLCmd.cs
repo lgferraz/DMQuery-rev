@@ -25,6 +25,7 @@ namespace DMQuery
                     Conexao.Conectar();
                     using (SqlCommand cmd = new SqlCommand(query, Conexao.conn))
                     {
+                        cmd.CommandTimeout = 0;
                         // criar um DataAdapter para executar a query e preencher um DataTable com o resultado
                         using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
                         {
